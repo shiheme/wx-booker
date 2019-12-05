@@ -34,8 +34,8 @@
 这个是做互联网没办法少的，选用ECS主要因为我服务器有其他建站需求，建立多个网站使用。年费：500元+。
 - **后台：Wordpress**  
 强大而免费，通过插件的使用可以打造出功能完善的CMS/商城系统。年费：0元。
-- **RESTAPI:微慕开源版**  
-这个是用于将wordpress和小程序通信的插件程序，我是用的是开源版3.6+。年费：0元。
+- **RESTAPI:微慕小程序插件**  
+这个是用于将wordpress和小程序通信的插件程序，我是用的是微慕小程序插件1.6.0。年费：0元。
 - **小程序：微信小程序个人版**  
 前期因为无法预测变现能力，所以考虑成本，我输出的是个人版小程序。未来有更多本地商业服务的时候，移植到企业版。年费：0元。
 - **前端：微慕开源版+自己摸索完成**  
@@ -84,7 +84,7 @@
  进入wordpress后台微慕的小程序插件，输入要在小程序中轮播显示的本地活动文章ID。用于轮播显示在详情页底部和我的信息页入口。  
  ![viewimg/14.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/14.jpg) 
  6. *天气和地址配置*  
- 使用[高德SDK](https://lbs.amap.com/api/wx/summary/)，前往并注册账号获取key，key和city需要配置成你的信息。需要配置的文件pages/mine/mine.js,pages/amap/amap.js。SDK在Github的传送门：[https://github.com/amap-demo/wx-regeo-poiaround-weather]。  
+ 使用[高德SDK](https://lbs.amap.com/api/wx/summary/)，前往并注册账号获取key，key和city需要配置成你的信息。需要配置的文件pages/mine/mine.js,pages/amap/amap.js。SDK在Github的传送门：[https://github.com/amap-demo/wx-regeo-poiaround-weather](https://github.com/amap-demo/wx-regeo-poiaround-weather)。  
  ![viewimg/15.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/15.jpg)
 
 # 感谢
