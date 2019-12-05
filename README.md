@@ -2,7 +2,7 @@
  微信小程序-图书共享预定
 
 # 体验效果
-![](https://www.hellobeebee.com/wp-content/uploads/2019/06/01.jpg)
+![image](https://www.hellobeebee.com/wp-content/uploads/2019/06/01.jpg)
 
 ![][2]
 **微信扫码体验**
