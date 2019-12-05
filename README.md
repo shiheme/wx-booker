@@ -46,17 +46,17 @@
 
 - **程序安装**
  1. *Wordpress安装*  
- 前往[官方下载](https://wordpress.org/)或者[https://github.com/WordPress/WordPress]最新版本，按网上教程一步步安装。
+ 前往[官方下载](https://wordpress.org/)或者[https://github.com/WordPress/WordPress](https://github.com/WordPress/WordPress)最新版本，按网上教程一步步安装。
  2. *Wordpress主题安装*  
  我使用[raz主题](http://appbeebee.com/product/raz/)，主要是我比较懒，这个主题不光是因为我网站商城需要简洁的效果，自带的文章自定义字段也方便我定义。
  ![viewimg/03.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/03.jpg)  
  3. *Wordpress插件安装*  
- 这里用到两个插件：微慕的小程序插件[https://github.com/iamxjb/rest-api-to-miniprogram]+全局搜索插件Search Everything，在wordpress后台安装新插件搜索进行安装。前者的RestAPI用于与微信小程序通信，后者用于小程序支持字段搜索。
+ 这里用到两个插件：微慕的小程序插件[https://github.com/iamxjb/rest-api-to-miniprogram](https://github.com/iamxjb/rest-api-to-miniprogram)+全局搜索插件Search Everything，在wordpress后台安装新插件搜索进行安装。前者的RestAPI用于与微信小程序通信，后者用于小程序支持字段搜索。
  ![viewimg/04.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/04.jpg)   
  ![viewimg/05.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/05.jpg)   
  ![viewimg/06.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/06.jpg)   
  4. *微慕开源版下载*  
- 微慕算很良心的小程序开源商，功能多，文档详细，社区活跃，值得使用。需要高级功能的可以去[微慕商城](https://shops.minapper.com/)购买专业版，提供在线技术支持。微慕开源版本在Github的传送门：[https://github.com/iamxjb/winxin-app-watch-life.net]。
+ 微慕算很良心的小程序开源商，功能多，文档详细，社区活跃，值得使用。需要高级功能的可以去[微慕商城](https://shops.minapper.com/)购买专业版，提供在线技术支持。微慕开源版本在Github的传送门：[https://github.com/iamxjb/winxin-app-watch-life.net](https://github.com/iamxjb/winxin-app-watch-life.net)。
  5. *微信小程序账号申请*  
  前往[微信官方](https://mp.weixin.qq.com/)注册小程序账号，后台获取你的appid和秘匙，填写相应的小程序信息。选择服务类型时要注意，个人类型的小程序在服务类型选择上要慎重，看[官方文档](https://developers.weixin.qq.com/miniprogram/product/material/)，最好选择工具类型。
  6. *微信小程序开发环境安装*  
@@ -88,10 +88,10 @@
  ![viewimg/15.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/15.jpg)
 
 # 感谢
-感谢[https://hellobeebee.com/]提供空间  
-感谢[https://appbeebee.com/]提供主题  
-感谢[https://shops.minapper.com/]提供小程序代码  
-如果你觉得这个模板不错，请打赏馆长。  
+- 感谢[https://hellobeebee.com/] 提供空间  
+- 感谢[https://appbeebee.com/] 提供主题  
+- 感谢[https://shops.minapper.com/] 提供小程序代码  
+- 如果你觉得这个模板不错，请打赏馆长。  
 ![viewimg/16.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/16.jpg) 
 
 # 相关资源  
