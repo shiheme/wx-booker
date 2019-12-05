@@ -3,11 +3,11 @@
 
 # 体验效果
 **在微信中搜索小程序【建始同城共享书】或扫码体验**  
-![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/01.jpg)
+![viewimg/01.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/01.jpg)
 
-![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.jpg)  
+![viewimg/02.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.jpg)  
 
-![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.gif) 
+![viewimg/02.gif](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.gif) 
 
 
 # 初衷
