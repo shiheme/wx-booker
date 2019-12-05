@@ -88,12 +88,15 @@
  ![viewimg/15.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/15.jpg)
 
 # 感谢
-- 感谢[https://hellobeebee.com/] 提供空间  
-- 感谢[https://appbeebee.com/] 提供主题  
-- 感谢[https://shops.minapper.com/] 提供小程序代码  
+- 感谢[https://hellobeebee.com/](https://hellobeebee.com/) 提供空间  
+- 感谢[https://appbeebee.com/](https://appbeebee.com/) 提供主题  
+- 感谢[https://shops.minapper.com/](https://shops.minapper.com/) 提供小程序代码  
 - 如果你觉得这个模板不错，请打赏馆长。  
 ![viewimg/16.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/16.jpg) 
 
 # 相关资源  
-无
+- *github*  
+[https://github.com/shiheme/wx-booker](https://github.com/shiheme/wx-booker)
+- *gitee镜像*  
+[https://gitee.com/week7day/wx-booker](https://gitee.com/week7day/wx-booker)
 
