@@ -4,8 +4,7 @@
 # 体验效果
 ![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/01.jpg)
 
-![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/01.jpg)
-**微信扫码体验**
+![image](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.jpg)
 
 # 初衷
 通过微信小程序向当地爱书者提供一个图书共享预定平台，前期期望投入费用越少越好。同时还要有一定的变现能力，例如图书借阅费、本地商家广告投放。
