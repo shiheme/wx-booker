@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigate-title": "../../templates/components/navigateTitle/index",
+    "poster": "../../templates/components/wxa-plugin-canvas-poster/poster/index"
+  },
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom"
+}

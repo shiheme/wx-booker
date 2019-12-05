@@ -1,0 +1,64 @@
+<!--contact.wxml-->
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="container {{isIphoneX?'pagebody-iphonex':''}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label">
+      <view class="imtit-label-title">
+        <view class="maintit">核对预借信息
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cntlistbox contact" style="display:{{showallDisplay}};">
+    <view class="card">
+      <view class="cardbody">
+        <view class="bookmsg">
+          <view class="bookimg">
+            <image src="{{bookimg}}" mode="aspectFill" class="cover"></image>
+          </view>
+          <view class="li booktit">
+            <view class="name">书名：</view>
+            <view class="vue">《{{booktit}}》</view>
+          </view>
+          <view class="li bookisbn">
+            <view class="name">ISBN：</view>
+            <view class="vue">{{bookisbn}}</view>
+          </view>
+          <view class="li auth line">
+            <view class="name">借书人：</view>
+            <view class="vue">{{auth}}</view>
+          </view>
+          <view class="li level">
+            <view class="name">用户等级：</view>
+            <view class="vue">{{level}} <text wx:if="{{level=='贡献者'}}" style="font-weight:bold; font-size:24rpx;">{{leveltxt}}</text></view>
+          </view>
+          <view class="li bookcost line">
+            <view class="name">借阅费：</view>
+            <view class="vue">
+              ¥{{bookcost}}
+            </view>
+          </view>
+          <view class="li booktime">
+            <view class="name">借阅时间：</view>
+            <view class="vue">1个月</view>
+          </view>
+        </view>
+        <view class="cardfoot">
+        <view class="btn-confirm" bindtap="copytxt">复制文本</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="importantmsg">
+    <view><text>* 确认上述内容无误后点击复制文本，联系馆长并粘贴预借信息；馆长收到信息后会回复预借是否成功，以及借书注意事项；</text></view>
+    <view><text>* 预借成功的书籍会锁定三天，请在三天内前往共享书屋取书；</text></view>
+    <view><text>* 馆长回复信息会有延迟，一般在晚上19:00-22:00回复；如超过一天未收到馆长客服服务信息，请加馆长为好友进行沟通。</text></view>
+    </view>
+  </view>
+</view>
+<view class="borrowbox {{isIphoneX?'borrowbox-iphonex':''}}">
+  <view class="booktoadmin">
+    <view class="kefu"><text>联系馆长</text><button class="auth-btn" open-type="contact"></button></view>
+    <view class="haoyou" catchtap="addhaoyou">加馆长为好友</view>
+  </view>
+</view>

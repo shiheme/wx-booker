@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="container" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">建始同城共享书
+        </view>
+        <view class="subtit">一杯咖啡，一本书，一位朋友。
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，下拉刷新重试</view>
+  </view>
+  <view class="cntlistbox bookcate" style="display:{{floatDisplay}}">
+    <block wx:key="id" wx:for="{{categoriesList}}" wx:if="{{item.count > 2}}">
+      <view class="card" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
+        <view class="cardhead"></view>
+        <view class="cardbody {{bookimgshow ? 'active' : ''}}">
+          <block wx:key="index" wx:for="{{item.posts.data}}" wx:for-item='item_p'>
+            <view class="bookbg bookbg-{{index}}" style=" background-color:{{item_p.format_quote_background}};"></view>
+            <image class="bookimg cover bookimg-{{index}}" src="{{item_p.post_medium_image}}" mode="aspectFill"></image>
+          </block>
+        </view>
+        <view class="cardfoot">
+          <view class="cardcell">
+            <view class="tit">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="more">
+              <text class="txt">全部 {{item.count}} 册</text>
+              <icon />
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

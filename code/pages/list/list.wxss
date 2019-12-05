@@ -1,0 +1,105 @@
+/**list.wxss**/
+
+.booklist .content-main {
+  display: flex;
+  padding: 30rpx;
+}
+
+.booklist .content-main .content-image {
+  display: flex;
+  margin-right: 30rpx;
+}
+
+.booklist .content-main .content-other {
+  display: flex;
+  flex: auto;
+  flex-flow: column;
+}
+
+.booklist .content-image image {
+  width: 150rpx;
+  height: 208rpx;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  border-radius: 4rpx;
+  position: relative;
+  margin-bottom: -50rpx;
+}
+
+.booklist .content-title {
+  line-height: 42rpx;
+}
+
+.booklist .content-title text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.booklist .content-desc {
+  line-height: 26rpx;
+  margin-top: 12rpx;
+}
+
+.booklist .content-desc text {
+  font-size: 22rpx;
+}
+
+.booklist .content-desc-other {
+  line-height: 30rpx;
+  margin-top: 10rpx;
+}
+
+.booklist .content-desc-other text {
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.booklist .content-msg {
+  margin-right: 20rpx;
+  line-height: 24rpx;
+}
+
+.booklist .content-msg .case {
+  border-width: 0 1rpx;
+  border-style: solid;
+  padding: 0 10rpx;
+  font-size: 24rpx;
+}
+
+.booklist .cardbody {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+.booklist .cardfoot .case {
+  border-color: rgba(0, 0, 0, 0.9);
+  border-width: 0 1rpx;
+  border-style: solid;
+  padding: 0 10rpx;
+}
+
+.booklist .blackbg .content-title text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.booklist .blackbg .content-desc text,
+.booklist .blackbg .content-desc-other text {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.booklist .whitebg .content-title text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.booklist .whitebg .content-desc text,
+.booklist .whitebg .content-desc-other text {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.isCatePage .format_link, .isCatePage .category_name, .isCatePage .custom_author {
+  display: none;
+}
+
+.isSearchPage .format_link, .isSearchPage .custom_author {
+  display: none;
+}

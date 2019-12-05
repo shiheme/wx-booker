@@ -1,0 +1,304 @@
+/**detail.wxss**/
+@import "../../wxParse/wxParse.wxss";
+@import "../../templates/modal-view/modal-view.wxss";
+
+.borrowbox {
+  position: fixed;
+  bottom: 0rpx;
+  height: 120rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.borrowbox-iphonex {
+  padding-bottom: 68rpx;
+}
+
+.borrowcontain {
+  padding: 30rpx 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.borrowbox .sellborrowpricearea {
+  display: flex;
+  align-items: center;
+}
+
+.borrowbox .sellborrowpricearea .bookborrowprice {
+  display: flex;
+  align-items: center;
+  line-height: 50rpx;
+  height: 50rpx;
+}
+
+.borrowbox .sellborrowpricearea .bookborrowprice text {
+  margin-right: 20rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.borrowbox .sellborrowpricearea .bookborrowprice .unit {
+  font-size: 28rpx;
+  font-weight: normal;
+}
+
+.borrowbox .borrowpricearea {
+  display: flex;
+  align-items: center;
+}
+
+.borrowbox .borrowpricearea text {
+  margin-right: 20rpx;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.borrowbox .borrowpricearea .unit {
+  font-size: 28rpx;
+  font-weight: normal;
+}
+
+.borrowbox .borrowmainbtnbox {
+  flex: auto;
+  margin-left: 50rpx;
+  display: flex;
+  align-items: center;
+}
+
+.borrowbox .borrowmainbtnbox .state {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.borrowbox .borrowmainbtnbox .borrowmainbtn {
+  flex: 100%;
+  height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.borrowbox .borrowmainbtnbox .borrowmainbtn.norss {
+  background: #f5f5f5;
+  color: #aaa;
+}
+
+.borrowbox.whitebg .borrowmainbtnbox .borrowmainbtn.yesrss {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.borrowbox.blackbg .borrowmainbtnbox .borrowmainbtn.yesrss {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.msgtip .cardcell {
+  transition: all 2s linear;
+  animation: animate 2s linear infinite;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+@keyframes animate {
+  0% {
+  }
+
+  100% {
+    background-position: 300rpx 0;
+  }
+}
+
+.pagehead {
+  text-align: center;
+  padding: 0 50rpx 50rpx 50rpx;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+.pagehead image.cover {
+  width: 300rpx;
+  height: 415rpx;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: relative;
+  border-radius: 4rpx;
+  margin: 0 auto;
+}
+
+.pagehead .likearea image {
+  width: 48rpx;
+  height: 48rpx;
+  margin: 0rpx 10rpx 10rpx 0rpx;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.pagebody {
+  padding-bottom: 220rpx;
+}
+
+.pagebody-iphonex {
+  padding-bottom: 288rpx;
+}
+
+.pagebody .ctlbtn {
+  padding: 0rpx 100rpx 40rpx 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pagebody .ctlbtn .btnbox {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pagebody .ctlbtn .btnbox button {
+  position: absolute;
+  width: 100%;
+  height: 88rpx;
+  border: none !important;
+  opacity: 0;
+  z-index: 15;
+}
+
+.pagebody .ctlbtn .btn {
+  width: 100%;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.pagebody .ctlbtn .btn image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.pagebody .entry-summary {
+  font-size: 32rpx;
+  line-height: 1.5;
+  padding: 50rpx;
+}
+
+.pagebody .entry-summary .h3title {
+  font-size: 34rpx;
+  margin: 20rpx 0rpx;
+  font-weight: bold;
+}
+
+.pagebody .entry-summary .contentarea {
+  font-size: 30rpx;
+  letter-spacing: 1rpx;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.pagebody .entry-summary .gallerybox {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.pagebody .entry-summary .galleryarea {
+  display: flex;
+  width: calc(100% + 18rpx);
+  flex-wrap: wrap;
+}
+
+.pagebody .entry-summary .galleryarea .galleryimages {
+  flex: 0 0 calc(25% - 18rpx);
+  margin-right: 18rpx;
+}
+
+.pagebody .entry-summary .galleryarea .galleryimages image {
+  width: 100% !important;
+}
+
+/* 头部书签样式 */
+
+.navigate-booksmg-box {
+  position: fixed;
+  z-index: 100;
+  width: calc(100% - 100rpx - 88px - 80rpx);
+  overflow: hidden;
+}
+
+.navigate-booksmg {
+  position: absolute;
+  opacity: 0;
+  top: 22rpx;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+}
+
+.navigate-booksmg image {
+  height: 70rpx;
+  width: 50rpx;
+  margin-right: 10rpx;
+  border-radius: 2px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navigate-booksmg .navigate-booksmg-txt {
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 60rpx);
+}
+
+.navigate-booksmg .navigate-booksmg-txt text.tit {
+  font-size: 30rpx;
+  display: block;
+  height: 40rpx;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.navigate-booksmg .navigate-booksmg-txt text.desc {
+  display: block;
+  font-size: 20rpx;
+  height: 24rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.navigate-booksmg-box.active .navigate-booksmg {
+  opacity: 1;
+  top: 0rpx;
+  transition: 0.3s;
+}
+
+.navigate-booksmg-box.blackbg .navigate-booksmg text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.navigate-booksmg-box.whitebg .navigate-booksmg text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.blackbg .imtit-label-title .maintit {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.blackbg .imtit-label-title .subtit {
+  color: rgba(255, 255, 255, 0.6);
+}

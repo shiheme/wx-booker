@@ -1,0 +1,61 @@
+<template name="tempCommonList">
+  <block wx:key="id" wx:for="{{postsList}}">
+    <view class="card {{item.format_embed_aspect_ration}}" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+      <view class="cardhead"></view>
+      <view class="cardbody" style="background-color:{{item.format_quote_background}};">
+        <view class="content-main">
+          <view class="content-image">
+            <image src="{{item.post_medium_image}}" mode="aspectFill" class="cover"></image>
+          </view>
+          <view class="content-other">
+            <view class="content-title">
+              <text class="tit">{{item.title.rendered}}</text>
+            </view>
+            <view class="content-desc">
+              <text class="desc">{{item.excerpt.rendered}}</text>
+            </view>
+            <view class="content-desc-other format_link" wx:if="{{item.format_link}}">
+              <text class="">{{item.format_link}}</text>
+            </view>
+            
+            <view class="content-desc-other category_name" wx:if="{{item.category_name}}">
+            <text class="">所属书单《{{item.category_name}}》</text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+      <view class="cardfoot">
+        <view class="cardcell">
+          <view class="tit">
+            <block wx:if="{{item.tags_name=='已借出'}}">
+              <text class="case case1">已借出</text>
+            </block>
+            <block wx:elif="{{item.tags_name=='暂无'}}">
+              <text class="case case2">暂无</text>
+            </block>
+            <block wx:elif="{{item.tags_name=='可借阅'}}">
+              <text class="case case3">在馆可借阅</text>
+            </block>
+            <block wx:if="{{item.format_quote_author}}">
+              <text class="txt">{{item.format_quote_author}} 共享</text>
+            </block>
+            <block wx:if="{{item.custom_author}}">
+              <text class="custom_author">{{item.custom_author * 11}} 积分</text>
+            </block>
+          </view>
+          <view class="more">
+            <block wx:if="{{item.like_count > 0}}">
+              <image src="../../images/whitebg/like.svg" class="img-like"></image>
+              <text class="num">{{item.like_count}}</text>
+            </block>
+            <block wx:if="{{item.custom_author}}">
+              <text class="txt custom_author">去兑换</text>
+              <icon class="custom_author" />
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>

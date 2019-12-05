@@ -1,0 +1,283 @@
+/**app.wxss**/
+
+.container {
+  box-sizing: border-box;
+  padding-bottom: 80rpx;
+}
+
+.cntlistbox {
+  padding-top: 40rpx;
+}
+
+.imtit {
+  position: relative;
+  margin: 50rpx 50rpx 0 50rpx;
+}
+
+.imtit-label {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.imtit-label-great {
+  justify-content: left;
+  text-align: left;
+}
+
+.imtit-label-title {
+}
+
+.imtit-label-title .maintit {
+  font-size: 44rpx;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  display: block;
+}
+
+.imtit-label-great .imtit-label-title .maintit {
+  font-size: 50rpx;
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  display: block;
+}
+
+.imtit-label-title .subtit {
+  display: block;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: bold;
+  font-size: 30rpx;
+  margin: 20rpx 0;
+}
+
+.card {
+  position: relative;
+  margin: 40rpx 50rpx 0rpx 50rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 16rpx;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 10;
+}
+
+.card .cardbody {
+  overflow: hidden;
+}
+
+.card .cardcell {
+  height: 100rpx;
+  padding: 0 30rpx;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card .cardcell:last-child {
+  border-bottom: none;
+}
+
+.cardcell .tit {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.cardcell .titnor {
+  font-weight: normal;
+}
+
+.cardcell .tit .txt {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24rpx;
+  font-weight: normal;
+  margin-left: 20rpx;
+}
+
+.cardcell .more {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cardcell .more .num {
+  color: #333;
+  font-weight: bold;
+  font-size: 26rpx;
+}
+
+.cardcell .more image {
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+
+.cardcell .more .txt {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 24rpx;
+}
+
+.cardcell .more icon {
+  align-self: center;
+  margin-left: 20rpx;
+}
+
+.cardcell .more icon:after {
+  content: '';
+  display: block;
+  width: 10rpx;
+  height: 10rpx;
+  transform: rotate(45deg);
+  border-right: 2rpx solid rgba(0, 0, 0, 0.5);
+  border-top: 2rpx solid rgba(0, 0, 0, 0.5);
+}
+
+.loadingmore {
+  margin: 40rpx 50rpx;
+  text-align: center;
+}
+
+.loadingmore .no-more {
+  line-height: 50rpx;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 24rpx;
+}
+
+/*书本叠加样式*/
+
+image.cover:before {
+  content: '';
+  position: absolute;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANcAAABKCAYAAAAohcEoAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ1IDc5LjE2MzQ5OSwgMjAxOC8wOC8xMy0xNjo0MDoyMiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpjNGIyZDc5MC00OTI3LTRlNDctYTZjNS1hM2MwZGJmNDhiZDYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NjY0NDdCOTBGREMxMTFFOUJGQTVENERFNkRGMjg4ODUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NjY0NDdCOEZGREMxMTFFOUJGQTVENERFNkRGMjg4ODUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTkgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpkMTRiYzU5OS05ZWU2LTQzYzAtYjc3ZC0zNGMyM2UwZmRiNTciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6YzRiMmQ3OTAtNDkyNy00ZTQ3LWE2YzUtYTNjMGRiZjQ4YmQ2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");
+  background-position: 0 0;
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
+/* 登录框 */
+
+.login-popup {
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.popup-show {
+  z-index: 999;
+  bottom: 0;
+}
+
+.login-popup .popup-mask {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.login-popup .popup-container {
+  position: absolute;
+  bottom: -450rpx;
+  height: 450rpx;
+  width: 100%;
+  z-index: 10;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 40rpx 40rpx 0 0;
+  transition: 0.2s;
+}
+
+.login-popup.popup-show .popup-container {
+  bottom: 0rpx;
+  transition: 0.2s;
+}
+
+.login-popup-wrapper {
+  padding: 50rpx;
+}
+
+.login-popup-wrapper .tipcnt {
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+.login-popup-wrapper .tipcnt icon {
+  margin-right: 10rpx;
+}
+
+.login-popup-wrapper .tipbtn {
+  display: flex;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.login-popup-wrapper .tipbtn button {
+  flex: auto;
+  border-radius: 20rpx;
+  height: 60rpx;
+}
+
+.login-popup-wrapper .tipbtn button.login-btn {
+  background: #13c471;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.login-popup-wrapper .tipbtn button.reset {
+  background: #f0f0f0;
+  color: #333;
+  font-size: 32rpx;
+}
+
+.login-popup-wrapper .tipimportant {
+  color: rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+  font-size: 24rpx;
+  margin-top: 30rpx;
+}
+
+.showerror {
+  margin: 50rpx;
+}
+
+.showerror image {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.showerror .errortext {
+  font-size: 32rpx;
+}
+
+.whitebg showerror .errortext {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.blackbg showerror .errortext {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.wxParse-p {
+  margin-top: 30rpx;
+}
+
+.wxParse-blockquote {
+  padding: 20rpx !important;
+}

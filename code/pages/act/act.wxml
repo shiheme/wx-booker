@@ -1,0 +1,56 @@
+<!--act.wxml-->
+
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/faq/faq" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+<view class="container" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">本地活动
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，下拉刷新重试</view>
+  </view>
+  <view class="cntlistbox actlist" style="display:{{floatDisplay}}">
+    <block wx:key="id" wx:for="{{postsList}}">
+      <view class="actli" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+        <view class="content-msg">
+          <view class="content-title">
+            <text class="tit">{{item.title.rendered}}<block wx:if="{{item.excerpt.rendered}}">·{{item.excerpt.rendered}}</block></text>
+          </view>
+          <view class="content-area" wx:if="{{item.actarea}}">
+            <text class="num">{{item.actarea}}</text>
+          </view>
+        </view>
+        <view class="card {{item.format_embed_aspect_ration}}">
+          <view class="cardhead">
+            <icon style="border-bottom: 10px solid {{item.format_quote_background}};" />
+          </view>
+          <view class="cardbody">
+            <view class="content-main">
+              <view class="content-image" style="background-color:{{item.format_quote_background}};">
+                <image src="{{item.post_medium_image}}" mode="aspectFill"></image>
+              </view>
+            </view>
+          </view>
+          <view class="cardfoot" style="background-color:{{item.format_quote_color}};">
+            <view class="cardcell">
+              <view class="tit">
+                <text wx:if="{{item.format_link && item.format_video_url}}">有效期：{{item.format_link}} 至 {{item.format_video_url}}</text>
+                <text wx:elif="{{item.format_video_url}}">有效期至{{item.format_video_url}}</text>
+                <text wx:else>长期有效</text>
+              </view>
+              <view class="more">
+                <icon />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

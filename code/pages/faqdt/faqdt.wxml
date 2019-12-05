@@ -1,0 +1,58 @@
+<!--faqdt.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<navigate-title style="display:{{display}}" title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}"
+/>
+
+<view class="showerror" style="display:{{showerror}};">
+  <image src="../../images/whitebg/error.svg"></image>
+  <view class="errortext">{{errMessage}}</view>
+</view>
+
+<view class="container" style="display:{{display}};padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">{{detail.title.rendered}}
+        </view>
+        <view class="subtit">{{detail.pageviews}}人浏览
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pagebody {{isIphoneX?'pagebody-iphonex':''}}">
+    <view class="entry-summary">
+      <view class="contentbox" wx:if="{{detail.content}}">
+        <view class="h3title"></view>
+        <!--view class="contentarea" style="height:{{detailSummaryHeight}}"-->
+        <view class="contentarea">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+      <view class="gallerybox" wx:if="{{detail.format_gallery}}">
+        <view class="h3title"></view>
+        <view class="galleryarea">
+          <template is="wxParse" data="{{wxParseData:gallery.nodes}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="card kefubox">
+    <view class="cardhead">
+      <text>没有解决到您的问题？</text>
+    </view>
+    <view class="cardfoot">
+      <view class="kefu">
+        <view class="cardcell">
+          <view class="tit">
+            <text>联系馆长</text>
+          </view>
+          <view class="more">
+            <icon />
+          </view>
+        </view>
+        <button class="auth-btn" open-type="contact"></button>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,144 @@
+/**contact.wxss**/
+
+.pagebody-iphonex {
+  padding-bottom: 228rpx;
+}
+
+.cardbody {
+  padding: 50rpx;
+}
+
+.bookmsg {
+  display: flex;
+  flex-flow: column;
+}
+
+.bookmsg view.li {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+
+.bookmsg view.li .vue {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex: auto;
+}
+
+.bookmsg view.li .name {
+  width: 130rpx;
+  margin-right: 20rpx;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.bookmsg view.line {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+}
+
+.bookimg {
+  margin-bottom: 30rpx;
+}
+
+.bookimg image {
+  width: 150rpx;
+  height: 208rpx;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  display: block;
+  position: relative;
+  border-radius: 4rpx;
+}
+
+.importantmsg {
+  margin-top: 40rpx;
+  padding: 0 50rpx;
+}
+
+.importantmsg view {
+  line-height: 30rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.borrowbox {
+  position: fixed;
+  bottom: 0rpx;
+  height: 120rpx;
+  left: 0rpx;
+  right: 0rpx;
+  background-color: #fff;
+  font-size: 28rpx;
+  box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.borrowbox-iphonex {
+  padding-bottom: 68rpx;
+}
+
+.booktoadmin {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 50rpx;
+}
+
+.booktoadmin view {
+  flex: 50%;
+  height: 80rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.booktoadmin view.kefu {
+  background: #13c471;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-right: 30rpx;
+  position: relative;
+}
+
+.booktoadmin view.kefu .auth-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  z-index: 10;
+  left: 0;
+  top: 0;
+}
+
+.cardfoot {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn-confirm {
+  width: 320rpx;
+  height: 80rpx;
+  border: 1rpx solid #c4c4c4;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  color: #333;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50rpx;
+}
+
+.booktoadmin view.haoyou {
+  background: #f0f0f0;
+  color: #333;
+  font-size: 32rpx;
+}

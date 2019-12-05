@@ -1,0 +1,119 @@
+<!--mine.wxml-->
+<import src="../../templates/login-popup.wxml" />
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+<view class="weatherbg" style="background:linear-gradient({{bggradient}});">
+  <image src="https://www.hellobeebee.com/wp-content/uploads/2019/06/{{weathericon}}.png" mode="widthFix" wx:if="{{weathericon}}"></image>
+</view>
+
+<view class="container {{pageStyle}} {{isweatherbg}}" style="padding-top: {{customBarHeight+10}}px;">
+
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit" wx:if="{{weather.liveData.temperature}}">
+          <text>{{weather.liveData.city}}</text>
+          <text>{{weather.liveData.weather}}</text>
+          <text class="temp">{{weather.liveData.temperature}}</text>
+        </view>
+        <view class="maintit" wx:else>
+          <text>我的信息</text>
+        </view>
+        <view class="subtit" wx:if="{{weather.liveData.temperature}}">{{tiptext}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，下拉刷新重试</view>
+  </view>
+  <view class="cntlistbox" style="display:{{floatDisplay}}">
+  
+    <view class="antharea card">
+      <view class="cardhead">
+        <view class="refreshbtn btn {{isloading ? 'loading':''}}" style="height:{{titleBarHeight}}px;" wx:if="{{openid !=''}}">
+          <button open-type="getUserInfo" bindgetuserinfo="refresh" style="height:{{titleBarHeight}}px;">
+          </button>
+          <image src="../../images/{{pageStyle}}/refresh.svg"></image>
+        </view>
+      </view>
+      <view class="cardbody">
+        <view class="anthmsg">
+          <view class="anthimg">
+            <image src="{{openid !='' ? userInfo.avatarUrl : '../../images/blackbg/gravatar.png'}}"></image>
+          </view>
+          <view class="anthname">{{openid !='' ? userInfo.nickName : '爱书者'}}</view>
+          <view class="memtype" wx:if="{{openid !=''}}">
+            <text class="" decode="{{true}}">{{userLevel.levelName}}</text>
+          </view>
+          <view class="memtype" bindtap="bindlogin" wx:else>
+            <text class="" decode="{{true}}">游客·点击登录</text>
+          </view>
+          <view class="tiptext">{{tiptext}}</view>
+
+        </view>
+      </view>
+
+    </view>
+    
+    <view class="card">
+     <swiper vertical="true" autoplay="true" circular="true" interval="4000" style="height:100rpx;">
+          <swiper-item wx:key="id" wx:for="{{postsShowSwiperList}}">
+
+            <view class="cardcell bendi" style="background-color:#f5f5f5;"  bindtap="redictAct">
+              <view class="tit" style="line-height: 28rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+                <text style="color:{{item.format_quote_background}};">{{item.post_title}}·{{item.post_excerpt}}</text>
+              </view>
+              <view class="more">
+                <icon />
+              </view>
+            </view>
+
+          </swiper-item>
+        </swiper>
+      <view class="cardcell" bindtap="redictMylove">
+        <view class="tit titnor">
+          <text>我喜欢的书目</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+      <view class="kefu"><view class="cardcell">
+        <view class="tit titnor">
+          <text>联系馆长</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+
+      </view>
+      <button class="auth-btn" open-type="contact"></button>
+      </view>
+
+    </view>
+
+    <view class="card">
+      <view class="cardcell" bindtap="clear">
+        <view class="tit titnor">
+          <text>清除缓存</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+      <view class="cardcell" catchtap="exit" wx:if="{{openid !=''}}">
+        <view class="tit titnor">
+          <text>退出</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>
+<!-- 登录框 -->
+<template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>

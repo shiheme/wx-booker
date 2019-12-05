@@ -1,0 +1,29 @@
+/**faq.wxss**/
+
+.faqlist .cardhead .faq-question {
+  padding: 30rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  line-height: 55rpx;
+}
+
+.faqlist .cardbody .faq-answer {
+  padding: 0 30rpx 30rpx 30rpx;
+  font-size: 28rpx;
+  line-height:  40rpx;
+}
+.faqlist .blackbg .faq-question {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.faqlist .whitebg .faq-question {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.faqlist .blackbg .faq-answer {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.faqlist .whitebg .faq-answer {
+  color: rgba(0, 0, 0, 0.9);
+}

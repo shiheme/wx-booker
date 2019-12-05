@@ -1,0 +1,223 @@
+<!--detail.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/loading.wxml" />
+<import src="../../templates/modal-view/modal-view.wxml" />
+<import src="../../templates/login-popup.wxml" />
+
+<navigate-title style="display:{{display}}" title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}"
+  bgcolor="{{detail.format_quote_background}}" />
+
+<view class="navigate-booksmg-box {{isActive ? 'active' : ''}} {{detail.format_embed_aspect_ration}}" style="left:120rpx;top:{{navBarHeight}}px;height:{{titleBarHeight}}px;">
+  <view class="navigate-booksmg" style="height:{{titleBarHeight}}px;width:100%;">
+    <image src="{{detail.post_medium_image}}" mode="aspectFill"></image>
+    <view class="navigate-booksmg-txt">
+      <text class="tit">{{detail.title.rendered}}</text>
+      <block wx:if="{{likeCount > 0}}">
+        <text class="desc">{{detail.pageviews}}人浏览·{{likeCount}}人喜欢</text>
+      </block>
+      <block wx:else>
+        <text class="desc">{{detail.pageviews}}人浏览</text>
+      </block>
+    </view>
+  </view>
+</view>
+
+<view class="showerror" style="display:{{showerror}};">
+  <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">{{errMessage}}</view>
+</view>
+
+<view class="container {{detail.format_embed_aspect_ration}}" style="display:{{display}};">
+  <view class="pagehead" style="background-color:{{detail.format_quote_background}};padding-top: {{customBarHeight+10}}px;">
+    <image src="{{detail.post_medium_image}}" mode="aspectFill" class="cover"></image>
+    <view class="imtit">
+      <view class="imtit-label">
+        <view class="imtit-label-title">
+          <view class="maintit">{{detail.title.rendered}}
+          </view>
+          <view class="subtit">{{detail.excerpt.rendered}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="likearea" style="display:{{displayLike}}">
+      <block wx:key="id" wx:for="{{likeList}}">
+        <image src="{{item}}" class=""></image>
+      </block>
+    </view>
+  </view>
+  <view class="pagebody {{isIphoneX?'pagebody-iphonex':''}}">
+    <view class="entry-summary">
+      <view class="ctlbtn">
+        <view class="btnbox">
+          <view class="btn" catchtap="clickLike">
+            <image src="../../images/{{likeImag}}"></image>
+          </view>
+        </view>
+        <view class="btnbox">
+          <button open-type='share' plain="true"></button>
+          <view class="btn">
+            <image src="../../images/whitebg/share.svg"></image>
+          </view>
+        </view>
+        <view class="btnbox" catchtap="onCreatePoster">
+          <view class="btn">
+            <image src="../../images/whitebg/pengyouquan.svg"></image>
+          </view>
+        </view>
+        <view class="btnbox" catchtap="praise">
+          <view class="btn">
+            <image src="../../images/whitebg/zan.svg"></image>
+          </view>
+        </view>
+      </view>
+      <view class="contentbox" wx:if="{{detail.content}}">
+        <view class="h3title">简介</view>
+        <!--view class="contentarea" style="height:{{detailSummaryHeight}}"-->
+        <view class="contentarea">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+          <!-- 阅读更多 -->
+          <!--view class="detail-read-more" wx:if="{{detailSummaryHeight != ''}}">
+          <view class="detail-readmore-mask">
+            <view class="detail-readmore-btn" bindtap="readMore">观看视频，阅读更多...</view>
+          </view>
+        </view-->
+        </view>
+      </view>
+      <view class="gallerybox" wx:if="{{detail.format_gallery}}">
+        <view class="h3title">图集</view>
+        <view class="galleryarea">
+          <template is="wxParse" data="{{wxParseData:gallery.nodes}}" />
+        </view>
+      </view>
+    </view>
+    <view class="card">
+      <view class="cardfoot">
+        <view class="cardcell" data-item="{{detail.category_name}}" data-id="{{detail.categories[0]}}" bindtap="redictIndex">
+          <view class="tit">
+            <text>所属书单</text>
+          </view>
+          <view class="more">
+            <text class="num">{{detail.category_name}}</text>
+            <icon />
+          </view>
+        </view>
+        <view class="cardcell" bindtap="wxParseTagATap" data-src="https://book.douban.com/subject/{{detail.format_link}}/">
+          <view class="tit">
+            <text>豆瓣读书</text>
+          </view>
+          <view class="more">
+            <text class="num">ID {{detail.format_link}}</text>
+            <icon />
+          </view>
+        </view>
+        <view class="cardcell" bindtap="wxParseTagATap" data-src="{{detail.format_video_url}}">
+          <view class="tit">
+            <text>ISBN</text>
+          </view>
+          <view class="more">
+            <text class="num">{{detail.format_video_url}}</text>
+            <icon />
+          </view>
+        </view>
+        <view class="cardcell">
+          <view class="tit">
+            <text>售价</text>
+          </view>
+          <view class="more">
+            <text class="num">¥ {{detail.custom_author}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card" wx:if="{{detail.format_quote_author}}">
+      <view class="cardfoot">
+        <view class="cardcell">
+          <view class="tit titnor">
+            <text>感谢 {{detail.format_quote_author}} 对此书的捐赠/共享</text>
+          </view>
+        </view>
+       </view>
+        </view> 
+  </view>
+</view>
+
+<template is="modalView" data="{{...__modalView__}}" />
+<poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+</poster>
+<template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>
+<view class="borrowbox {{detail.format_embed_aspect_ration}} {{isIphoneX?'borrowbox-iphonex':''}}" style="display:{{display}}">
+  <view class="card msgtip" style="margin-top: -140rpx;margin-bottom:40rpx;">
+    <swiper vertical="true" autoplay="true" circular="true" interval="4000" style="height:100rpx;">
+      <swiper-item wx:key="id" wx:for="{{postsShowSwiperList}}">
+
+        <view class="cardcell" style="background-color:#f5f5f5;" bindtap="redictAct">
+          <view class="tit" style="line-height: 28rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+            <text style="color:{{item.format_quote_background}};">{{item.post_title}}·{{item.post_excerpt}}</text>
+          </view>
+          <view class="more">
+            <icon />
+          </view>
+        </view>
+
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="borrowcontain">
+    <view class="sellborrowpricearea" wx:if="{{detail.custom_author}}">
+      <view class="bookborrowprice">
+        <text style="display:none;">借阅费</text>
+        <block wx:if="{{detail.custom_author <= 9}}">
+          <text>¥0.50</text>
+        </block>
+        <block wx:elif="{{(detail.custom_author > 9) && (detail.custom_author <= 20) }}">
+          <text>¥1.00</text>
+        </block>
+        <block wx:elif="{{(detail.custom_author > 20)&&(detail.custom_author <= 40) }}">
+          <text>¥2.00</text>
+        </block>
+        <block wx:elif="{{(detail.custom_author > 40)&&(detail.custom_author <= 60) }}">
+          <text>¥3.00</text>
+        </block>
+        <block wx:elif="{{(detail.custom_author > 60)&&(detail.custom_author <= 80) }}">
+          <text>¥4.00</text>
+        </block>
+        <block wx:elif="{{(detail.custom_author > 80)&&(detail.custom_author <= 100) }}">
+          <text>¥5.00</text>
+        </block>
+        <block wx:elif="{{detail.custom_author > 100}}">
+          <text>¥6.00</text>
+        </block>
+        <text class="unit">/本/月</text>
+      </view>
+
+    </view>
+    <view class="borrowpricearea" wx:else>
+      <text style="display:none;">借阅费</text>
+      <text>¥1.00</text>
+      <text class="unit">/本/月</text>
+    </view>
+    <view class="borrowmainbtnbox">
+      <block wx:if="{{detail.tags_name=='已借出'}}">
+        <view class="borrowmainbtn norss">
+          <text class="">已借出</text>
+        </view>
+      </block>
+      <block wx:elif="{{detail.tags_name=='暂无'}}">
+        <view class="borrowmainbtn norss">
+          <text class="">暂无</text>
+        </view>
+      </block>
+      <block wx:elif="{{detail.tags_name=='可借阅'}}">
+        <view class="borrowmainbtn yesrss" data-booktit="{{detail.title.rendered}}" style="background-color:{{detail.format_quote_background}}" catchtap="redictContact">
+          <text class="">预约借书</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+<!-- 小程序广告 -->
+<!--view class="ad-box-video" wx:if="{{detail.detailAdId !='' && detail.detailAd=='1' && detailAdsuccess}}">
+        <ad unit-id="{{detail.detailAdId}}" ad-intervals="30" ad-type="video" binderror="detailAdbinderror"></ad>
+      </view-->

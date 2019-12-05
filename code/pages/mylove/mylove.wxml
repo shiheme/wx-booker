@@ -1,0 +1,22 @@
+<!--card.wxml-->
+<import src="../../templates/common-list.wxml" />
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/faq/faq" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+<view class="container" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label">
+      <view class="imtit-label-title">
+        <view class="maintit">我喜欢的书目</view>
+        <view class="subtit" wx:if="{{shownodata}}">还没有喜欢的书目</view>
+        <view class="subtit" wx:else>仅显示最近的20条记录</view>
+      </view>
+    </view>
+  </view>
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，返回重试</view>
+  </view>
+  <view class="cntlistbox booklist mylovebook" style="display:{{floatDisplay}};">
+    <template is="tempCommonList" data="{{postsList}}" />
+  </view>
+</view>

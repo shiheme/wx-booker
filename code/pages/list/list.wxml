@@ -1,0 +1,35 @@
+<!--list.wxml-->
+<import src="../../templates/common-list.wxml" />
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+
+
+
+<view class="container" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label" wx:if="{{isCatePage}}">
+      <view class="imtit-label-title">
+        <view class="maintit" wx:if="{{categoriesList.name}}">全部{{categoriesList.name}}
+        </view>
+        <view class="subtit" wx:if="{{shownodata}}">这个类目下还没有书籍哦</view>
+      </view>
+    </view>
+    <view class="imtit-label" wx:if="{{isSearchPage}}">
+      <view class="imtit-label-title">
+        <view class="maintit">{{searchKey}}的搜索结果
+        </view>
+        <view class="subtit" wx:if="{{shownodata}}">没有找到您要的内容。可能书屋没有此书，您可以捐赠这本书到书屋。</view>
+      </view>
+    </view>
+  </view>
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，返回重试</view>
+  </view>
+  <view class="cntlistbox booklist{{isCatePage ? ' isCatePage' : ''}}{{isSearchPage ? ' isSearchPage' : ''}}" style="display:{{floatDisplay}}">
+    <template is="tempCommonList" data="{{postsList}}" />
+    <view class="loadingmore" style="display:{{floatDisplay}}">
+      <view class="no-more" hidden="{{!isLastPage}}">已经到底啦～</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,84 @@
+/**faqdt.wxss**/
+@import "../../wxParse/wxParse.wxss";
+
+.pagehead {
+  text-align: center;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+.pagehead image {
+  width: 100%;
+  height: 415rpx;
+  display: block;
+  position: relative;
+}
+
+.pagebody .entry-summary {
+  font-size: 32rpx;
+  line-height: 1.5;
+  padding: 50rpx;
+}
+
+.pagebody .entry-summary .h3title {
+  font-size: 34rpx;
+  margin: 20rpx 0rpx;
+  font-weight: bold;
+}
+
+.pagebody .entry-summary .contentarea {
+  font-size: 30rpx;
+  letter-spacing: 1rpx;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+.pagebody .entry-summary .gallerybox {
+  overflow: hidden;
+  margin-top: 20rpx;
+}
+
+.pagebody .entry-summary .galleryarea {
+  display: flex;
+  width: calc(100% + 18rpx);
+  flex-wrap: wrap;
+}
+
+.pagebody .entry-summary .galleryarea .galleryimages {
+  flex: 0 0 calc(25% - 18rpx);
+  margin-right: 18rpx;
+}
+
+.pagebody .entry-summary .galleryarea .galleryimages image {
+  width: 100% !important;
+}
+
+.kefu {
+  position: relative;
+}
+
+.kefu .cardcell {
+  position: relative;
+  z-index: 5;
+}
+
+.kefubox .cardhead {
+  font-size: 32rpx;
+  padding:30rpx 30rpx 0 30rpx;
+  line-height: 50rpx;
+}
+.kefubox .cardhead text {
+  color:rgba(0,0,0,.6);
+}
+
+.kefu .auth-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}

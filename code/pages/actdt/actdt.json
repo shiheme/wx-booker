@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigate-title": "../../templates/components/navigateTitle/index"
+  },
+  "enablePullDownRefresh": false,
+  "navigationStyle": "custom"
+}

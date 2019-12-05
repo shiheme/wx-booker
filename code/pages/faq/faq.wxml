@@ -1,0 +1,46 @@
+<!--faq.wxml-->
+<import src="../../templates/common-list.wxml" />
+<navigate-title title="" isshare="{{isshare}}" helpurl="/pages/list/list" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+<view class="container" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">借还书FAQ
+        </view>
+        <view class="subtit">
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/whitebg/error.svg"></image>
+    <view class="errortext">网络原因加载失败，下拉刷新重试</view>
+  </view>
+  <view class="cntlistbox faqlist" style="display:{{floatDisplay}}">
+    <block wx:key="id" wx:for="{{postsList}}">
+      <view class="card" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+        <view class="cardhead" style="">
+          <view class="faq-question">
+            <text>{{item.title.rendered}}</text>
+          </view>
+        </view>
+        <view class="cardbody" style="">
+          <view class="faq-answer">
+            <text>{{item.excerpt.rendered}}</text>
+          </view>
+        </view>
+        <view class="cardfoot">
+          <view class="cardcell">
+            <view class="tit">
+            </view>
+            <view class="more">
+              <text class="txt">详情</text>
+              <icon />
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
