@@ -36,11 +36,11 @@
 - **前端：微慕开源版+自己摸索完成** 小程序的前端是我通过微慕开源版3.6的代码二次开发完成，我现在Github已开源，有需要的朋友可以Clone。费用：0元。
 
 # 使用
-- **环境准备** [域名购买]()、[备案]()、[服务器选型]()购买、[配置环境]()网上很多教程这里不再赘述，注意：微信小程序要求域名需备案、https：//开头。
+- **环境准备** [服务器选型](https://www.aliyun.com/minisite/goods?userCode=zz7g1dvg)购买、[域名购买](https://wanwang.aliyun.com/)、[备案](https://beian.aliyun.com/)、[配置环境](https://www.zhihu.com/search?type=content&q=%E9%98%BF%E9%87%8C%E4%BA%91%20ecs%20centos%20%E6%90%AD%E5%BB%BAPHP%E7%BD%91%E7%AB%99)网上很多教程这里不再赘述，注意：微信小程序要求域名需备案、https：//开头。
 - **程序安装**
- 1. *Wordpress安装* 前往[官方下载]()最新版本，按网上教程一步步安装。
- 2. *Wordpress主题安装* 我使用[raz主题]()，主要是我比较懒，这个主题不光是因为我网站商城需要简洁的效果，自带的文章自定义字段也方便我定义。
- ![][3]
+ 1. *Wordpress安装* 前往[官方下载](https://wordpress.org/)或者[https://github.com/WordPress/WordPress]最新版本，按网上教程一步步安装。
+ 2. *Wordpress主题安装* 我使用[raz主题](http://appbeebee.com/product/raz/)，主要是我比较懒，这个主题不光是因为我网站商城需要简洁的效果，自带的文章自定义字段也方便我定义。
+ ![viewimg/03.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/03.jpg)  
  3. *Wordpress插件安装* 这里用到两个插件：微慕的小程序插件[插件]()+全局搜索插件[插件]()。前者的RestAPI用于与微信小程序通信，后者用于小程序支持字段搜索。
  ![][4]
  4. *微慕开源版下载* 微慕算很良心的小程序开源商，功能多，文档详细，社区活跃，值得使用。需要高级功能的可以去[微慕商城]()购买专业版，提供在线技术支持。微慕开源版本在Github的传送门：[https]()。
