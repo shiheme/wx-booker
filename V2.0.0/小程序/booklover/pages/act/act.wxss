@@ -1,0 +1,85 @@
+/**act.wxss**/
+
+.actlist .actli {margin-bottom:40rpx;}
+.actlist .actli .cardhead {
+  position: relative;
+}
+
+.actlist .actli .cardbody {
+  border-radius: 16rpx 16rpx 0 0;
+}
+.actlist .actli .cardfoot {
+  border-radius: 0 0 16rpx 16rpx;
+}
+
+.actlist .actli .content-msg {
+  padding: 50rpx 50rpx 0 50rpx;
+}
+
+.actlist .actli .card {
+  overflow: visible;
+}
+
+.actlist .actli .cardhead icon {
+  position: absolute;
+  left: 30rpx;
+  top: -20rpx;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.actlist .actli .content-main {
+  display: flex;
+  flex-flow: column;
+  min-height:16rpx;
+}
+
+.actlist .actli .content-main .content-image {
+  overflow: hidden;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+.actlist .actli .content-main .content-image image {
+  width: 100%;
+  height: 300rpx;
+  display: block;
+  position: relative;
+}
+
+.actlist .actli .content-title {
+  line-height: 55rpx;
+}
+
+.actlist .actli .content-title text {
+  font-size: 42rpx;
+  font-weight: bold;
+}
+
+.actlist .actli .content-area {
+  line-height: 36rpx;
+  margin-top: 10rpx;
+}
+
+.actlist .actli .content-area text {
+  font-size: 28rpx;
+}
+
+.card.blackbg .cardcell .tit text {
+  color: rgba(255, 255, 255, 0.8)!important;
+}
+
+.card.blackbg .cardcell .more icon:after {
+  border-right: 2rpx solid rgba(255, 255, 255, 0.5) !important;
+  border-top: 2rpx solid rgba(255, 255, 255, 0.5)!important;
+}
+.card.whitebg .cardcell .tit text {
+  color: rgba(0, 0, 0, 0.8)!important;
+}
+
+.card.whitebg .cardcell .more icon:after {
+  border-right: 2rpx solid rgba(0, 0, 0, 0.5)!important;
+  border-top: 2rpx solid rgba(0, 0, 0, 0.5)!important;
+}

@@ -1,0 +1,8 @@
+<template name="floatads">
+  <!-- 悬浮广告 -->
+  <view class="floatads {{isTouch ? 'active' : ''}}">
+    <image class="{{isTrans ? 'transactive' : ''}}" bindtap="toFloatadsurl" data-url="floatads_url" mode="aspectFit" src="floatads_image" wx:if="{{floatads_image != false}}"></image>
+    <image class="{{isTrans ? 'transactive' : ''}}" catchtap="praise" mode="widthFix" src="/images/on/plutus-cat-gold.png" wx:else></image>
+  </view>
+  <!-- 悬浮广告 -->
+</template>

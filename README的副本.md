@@ -3,9 +3,9 @@
 
 # 体验效果
 **在微信中搜索小程序【建始同城共享书】或扫码体验**  
-![viewimg/01.jpg](https://img-cdn-qiniu.dcloud.net.cn/uploads/article/20191209//078f48a42b6ecfd21bdc9507cf022f46.jpg)
+![viewimg/01.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/01.jpg)
 
-![viewimg/02.jpg](https://img-cdn-qiniu.dcloud.net.cn/uploads/article/20191209//33c03e5bea60a753715e235791728765.jpg)  
+![viewimg/02.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.jpg)  
 
 ![viewimg/02.gif](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/02.gif) 
 

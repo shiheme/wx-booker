@@ -1,0 +1,76 @@
+/**index.wxss**/
+
+.bookcate .card {
+  overflow: hidden;
+}
+
+.bookcate .cardhead {
+}
+
+.bookcate .cardbody {
+  position: relative;
+  height: 280rpx;
+  display: flex;
+  width: 100%;
+}
+
+.bookcate .cardbody .bookbg {
+  position: absolute;
+  width: 100%;
+  height: 280rpx;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-size: 300rpx 300rpx;
+}
+
+.bookcate .cardbody .bookbg.bookbg-0 {
+  display: block;
+}
+
+.bookcate .cardbody .bookimg {
+  width: 130rpx;
+  height: 180rpx;
+  position: absolute;
+  border-radius: 4rpx;
+  bottom: -10rpx;
+  right: -400rpx;
+}
+
+.bookcate .cardbody.active .bookimg-0 {
+  width: 150rpx;
+  height: 208rpx;
+  right: 350rpx;
+  transition: 0.5s;
+}
+
+.bookcate .cardbody.active .bookimg-1 {
+  width: 180rpx;
+  height: 250rpx;
+  right: 220rpx;
+  transition: 0.5s;
+}
+
+.bookcate .cardbody.active .bookimg-2 {
+  width: 165rpx;
+  height: 228rpx;
+  right: 150rpx;
+  transition: 0.5s;
+}
+
+.bookcate .cardbody.active .bookimg-3 {
+  width: 140rpx;
+  height: 200rpx;
+  right: 65rpx;
+  transition: 0.5s;
+}
+
+.bookcate .cardbody.active .bookimg-4 {
+  width: 130rpx;
+  height: 180rpx;
+  right: -10rpx;
+  transition: 0.5s;
+}

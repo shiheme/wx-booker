@@ -1,0 +1,48 @@
+<!--faq.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}"
+  />
+  <view class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+    <view class="imtit">
+      <view class="imtit-label imtit-label-great">
+        <view class="imtit-label-title">
+          <view class="maintit">{{categoriesName}}
+          </view>
+          <view class="subtit">
+          </view>
+        </view>
+      </view>
+    </view>
+    <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+    <view class="cntlistbox faqlist" style="display:{{floatDisplay}}">
+      <block wx:key="id" wx:for="{{postsList}}">
+        <view class="card" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+          <view class="cardhead" style="">
+            <view class="faq-question">
+              <text>{{item.title.rendered}}</text>
+            </view>
+          </view>
+          <view class="cardbody" style="">
+            <view class="faq-answer">
+              <text>{{item.excerpt.rendered}}</text>
+            </view>
+          </view>
+          <view class="cardfoot">
+            <view class="cardcell">
+              <view class="tit">
+              </view>
+              <view class="more">
+                <text class="txt">详情</text>
+                <icon />
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+

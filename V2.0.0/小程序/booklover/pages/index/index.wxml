@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}} {{wrapperhide}}"></view>
+
+<import src="../../templates/imtit.wxml" />
+<import src="../../templates/showerror.wxml" />
+<import src="../../templates/floatads.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" cnt_tp="{{cnt_tp}}" />
+<view bindtouchmove="touchmove" bindtouchend="touchend" bindtouchcancel="touchcancel" class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <template is="imtit" data="{{cmset:cmset,great:true}}" />
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox bookcate" style="display:{{floatDisplay}}">
+    <block wx:key="id" wx:for="{{categoriesList}}" wx:if="{{item.count > 0}}">
+      <view class="card" data-item="{{item.name}}" data-id="{{item.id}}" bindtap="redictIndex">
+        <view class="cardhead"></view>
+        <view class="cardbody {{bookimgshow ? 'active' : ''}}">
+          <block wx:key="index" wx:for="{{item.posts.data}}" wx:for-item='item_p'>
+            <view class="bookbg bookbg-{{index}}" style=" background-color:{{item_p.book_foreground}};"></view>
+            <image class="bookimg cover bookimg-{{index}}" src="{{item_p.post_medium_image}}" mode="aspectFill"></image>
+          </block>
+        </view>
+        <view class="cardfoot">
+          <view class="cardcell">
+            <view class="tit">
+              <text>{{item.name}}</text>
+            </view>
+            <view class="more">
+              <text class="txt">全部 {{item.count}} {{cmset.cnt_unit}}</text>
+              <icon />
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="floatadsbox" wx:if="{{cmset.open_floatads == 1 && (floatads_location != -1)}}">
+  <template is="floatads" data="{{isTouch:isTouch,isTrans:isTrans,floatads_url:cmset.floatads_url,floatads_image:cmset.floatads_image}}" />
+</view>

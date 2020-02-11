@@ -1,0 +1,34 @@
+<!--search.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="searcharea {{pageStyle}}">
+    <view class="searchbox">
+      <form catchreset="formReset" id="search-form">
+        <view class="searchwarp">
+          <view class="index-search container-class">
+            <icon type="search" size="26" />
+            <input id="search-input" name="input" bindconfirm="formSubmit" bindinput="onInput" class="search-input input-class" confirmType="search" focus="{{autoFocus}}" placeholder="{{placeHolder}}" placeholderClass="search-input-placeholder" value="{{searchKey}}" wx:if="{{inputEnable}}"></input>
+            <view class="search-input" wx:else>{{placeHolder}}</view>
+            <icon bindtap="onClear" type="clear" size="20" wx:if="{{searchKey}}" />
+          </view>
+          <view bindtap="formSubmit" class="closebtn" wx:if="{{keydown_number == 1}}">搜索</view>
+        </view>
+      </form>
+    </view>
+    <view class="searchlogs">
+      <view class="recordtext" style="display:flex;" wx:if="{{searchLogs.length > 0}}">
+        <text>搜索记录</text>
+        <image src="../../images/{{pageStyle}}/clear.svg" class="clear" bindtap="deleteHistory" />
+      </view>
+      <view class="historybox">
+        <block wx:key="id" wx:for="{{searchLogs}}">
+          <view class="historylist" bindtap='historyValue' data-url="{{item[1]}}" data-key="{{item[0]}}" data-cnt_tp="{{item[2]}}">{{item[0]}}</view>
+        </block>
+      </view>
+    </view>
+  </view>
+
+</view>

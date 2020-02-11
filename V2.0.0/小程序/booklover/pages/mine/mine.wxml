@@ -1,0 +1,120 @@
+<!--mine.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/login-popup.wxml" />
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="weatherbg" style="background:linear-gradient({{bggradient}});" wx:if="cmset.open_mine_weather == 1">
+  <image src="https://www.hellobeebee.com/wp-content/uploads/2019/06/{{weathericon}}.png" mode="widthFix" wx:if="{{weathericon}}"></image>
+</view>
+<view class="container {{pageStyle}} {{isweatherbg}}" style="padding-top: {{customBarHeight+10}}px;" wx:if="{{pageStyle}}">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit" wx:if="{{cmset.open_mine_weather == 1 && weather.liveData.temperature}}">
+          <text>{{weather.liveData.city}}</text>
+          <text>{{weather.liveData.weather}}</text>
+          <text class="temp">{{weather.liveData.temperature}}</text>
+        </view>
+        <view class="maintit" wx:else>
+          <text>我的信息</text>
+        </view>
+        <view class="subtit" wx:if="{{weather.liveData.temperature}}">{{tiptext}}</view>
+      </view>
+    </view>
+  </view>
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox" style="display:{{floatDisplay}}">
+    <view class="antharea card">
+      <view class="cardhead">
+        <view class="refreshbtn btn {{isloading ? 'loading':''}}" style="height:{{titleBarHeight}}px;" wx:if="{{openid !=''}}">
+          <button open-type="getUserInfo" bindgetuserinfo="refresh" style="height:{{titleBarHeight}}px;">
+          </button>
+          <image src="../../images/{{pageStyle}}/refresh.svg"></image>
+        </view>
+      </view>
+      <view class="cardbody">
+        <view class="anthmsg">
+          <view class="anthimg">
+            <image src="{{openid !='' ? userInfo.avatarUrl : '../../images/blackbg/gravatar.png'}}"></image>
+          </view>
+          <view class="anthname">{{openid !='' ? userInfo.nickName : '爱书者'}}</view>
+          <view class="memtype" wx:if="{{openid !=''}}">
+            <text class="" decode="{{true}}">{{userLevel.levelName}}</text>
+          </view>
+          <view class="memtype" bindtap="bindlogin" wx:else>
+            <text class="" decode="{{true}}">游客·点击登录</text>
+          </view>
+          <view class="tiptext">{{tiptext}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="card">
+      <view class="cardcell bendi" style="" bindtap="redictAct">
+        <view class="tit" style="line-height: 28rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+          <text style="color:{{item.act_foreground}};">活动</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+      <view class="cardcell" bindtap="redictMylove">
+        <view class="tit titnor">
+          <text>我喜欢的</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+      <view class="kefu">
+        <view class="cardcell">
+          <view class="tit titnor">
+            <text>联系馆长</text>
+          </view>
+          <view class="more">
+            <icon />
+          </view>
+        </view>
+        <button class="auth-btn" open-type="contact"></button>
+      </view>
+      <view class="cardcell" bindtap="redictAbout">
+        <view class="tit titnor">
+          <text>关于小程序</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+    </view>
+    <view class="card">
+      <view class="cardcell">
+        <view class="tit titnor">
+          <text>切换风格</text>
+        </view>
+        <view class="more">
+          <switch bindchange="switchChange" color="#04BE02" class="switch" checked='{{skinSwitch}}' style="margin-right: -16rpx;" />
+        </view>
+      </view>
+      <view class="cardcell" bindtap="clear">
+        <view class="tit titnor">
+          <text>清除缓存</text>
+        </view>
+        <view class="more">
+          <text class="txt">{{currentSize}}</text>
+          <icon />
+        </view>
+      </view>
+      <view class="cardcell" catchtap="exit" wx:if="{{openid !=''}}">
+        <view class="tit titnor">
+          <text>退出</text>
+        </view>
+        <view class="more">
+          <icon />
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 登录框 -->
+<template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>

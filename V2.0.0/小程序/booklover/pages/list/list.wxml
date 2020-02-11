@@ -1,0 +1,37 @@
+<!--list.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/floatads.wxml" />
+<import src="../../templates/showerror.wxml" />
+<import src="../../templates/common-list.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" cnt_tp="{{cnt_tp}}" />
+
+<view bindtouchmove="touchmove" bindtouchend="touchend" bindtouchcancel="touchcancel" class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label" wx:if="{{isCatePage}}">
+      <view class="imtit-label-title">
+        <view class="maintit" wx:if="{{categoriesList.name}}">全部{{categoriesList.name}}
+        </view>
+        <view class="subtit" wx:if="{{shownodata}}">没有找到您要的内容。</view>
+      </view>
+    </view>
+    <view class="imtit-label" wx:if="{{isSearchPage}}">
+      <view class="imtit-label-title">
+        <view class="maintit">{{searchKey}}的搜索结果
+        </view>
+        <view class="subtit" wx:if="{{shownodata}}">没有找到您要的内容。可能书屋没有此书，您可以捐赠这本书到书屋。</view>
+      </view>
+    </view>
+  </view>
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox booklist{{isCatePage ? ' isCatePage' : ''}}{{isSearchPage ? ' isSearchPage' : ''}}" style="display:{{floatDisplay}}">
+    <template is="tempCommonList" data="{{postsList:postsList,pageStyle:pageStyle,cnt_tp:cnt_tp,listAdsuccess:listAdsuccess}}" />
+    <view class="loadingmore" style="display:{{floatDisplay}}" wx:if="{{!shownodata}}">
+      <view class="no-more" hidden="{{!isLastPage}}">已经到底啦～</view>
+    </view>
+  </view>
+</view>
+<view class="floatadsbox" wx:if="{{cmset.open_floatads == 1 && (floatads_location != -1)}}">
+  <template is="floatads" data="{{isTouch:isTouch,isTrans:isTrans,floatads_url:cmset.floatads_url,floatads_image:cmset.floatads_image}}" />
+</view>

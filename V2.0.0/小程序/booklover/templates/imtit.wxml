@@ -1,0 +1,12 @@
+<template name="imtit">
+  <view class="imtit">
+    <view class="imtit-label {{great?'imtit-label-great':''}}">
+      <view class="imtit-label-title">
+        <view class="maintit">{{cmset.cnt_index_mintit}}
+        </view>
+        <view class="subtit">{{cmset.cnt_index_subtit}}
+        </view>
+      </view>
+    </view>
+  </view>
+</template>

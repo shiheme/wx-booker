@@ -1,0 +1,201 @@
+/**mine.wxss**/
+
+.container {
+  position: relative;
+  z-index: 10;
+}
+
+.weatherbg {
+  position: absolute;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 500rpx;
+}
+
+.weatherbg image {
+  width: 100%;
+}
+
+.maintit text {
+  margin-right: 20rpx;
+}
+
+.maintit .temp {
+  position: relative;
+}
+
+.maintit .temp:after {
+  content: "°";
+  position: absolute;
+  top: 4rpx;
+  z-index: 2;
+}
+
+.wewhitebg .maintit {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.weblackbg .maintit {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.antharea {
+  position: relative;
+  z-index: 10;
+  overflow: visible;
+}
+
+.antharea .cardbody {
+  padding: 50rpx;
+}
+
+.antharea .refreshbtn {
+  width: 88rpx;
+  position: absolute;
+  right: 10rpx;
+  top: 10rpx;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.antharea .refreshbtn button {
+  position: absolute;
+  width: 88rpx;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  opacity: 0;
+}
+
+.antharea .refreshbtn image {
+  align-self: center;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.antharea .refreshbtn.loading image {
+  transform: rotate(360deg);
+  animation: rotation 1s linear infinite;
+}
+
+.antharea .anthmsg {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.antharea .anthmsg .anthimg {
+  width: 150rpx;
+  height: 150rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 75rpx;
+  overflow: hidden;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.antharea .anthmsg .anthimg image {
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.antharea .anthmsg .anthname {
+  font-size: 36rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+}
+
+.antharea .anthmsg .memtype {
+  margin-top: 20rpx;
+}
+
+.antharea .anthmsg .memtype text {
+  border-width: 1rpx 0;
+  border-style: solid;
+  padding: 10rpx 0;
+  font-size: 30rpx;
+  line-height: 64rpx;
+}
+
+.antharea .anthmsg .tiptext {
+  font-size: 28rpx;
+  line-height: 38rpx;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  flex: auto;
+  box-sizing: border-box;
+  align-items: top;
+  display: none;
+}
+
+.antharea .anthmsg .active.tiptext {
+  display: block;
+}
+
+.bendi.cardcell {
+  animation: animate 2s linear infinite;
+  background-size: 300rpx 300rpx;
+}
+
+@keyframes animate {
+  0% {
+  }
+
+  100% {
+    background-position: 300rpx 0;
+  }
+}
+
+.kefu {
+  position: relative;
+}
+
+.kefu .cardcell {
+  position: relative;
+  z-index: 5;
+}
+
+.kefu .auth-btn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  opacity: 0;
+  z-index: 10;
+  top: 0;
+  left: 0;
+}
+
+.container.whitebg .bendi.cardcell {
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 75%, rgba(255, 255, 255, 0) 100%);
+  background-color:rgba(250,250,250,1);
+}
+.container.whitebg .antharea .anthmsg .anthname  {
+  color:rgba(0, 0, 0, 0.8);
+}
+
+.container.blackbg .bendi.cardcell  {
+  background-image: linear-gradient(135deg, rgba(37,37,37,1), rgba(37,37,37, 1) 25%, rgba(37,37,37, 0) 25%, rgba(37,37,37, 0) 50%, rgba(37,37,37, 1) 50%, rgba(37,37,37, 1) 75%, rgba(37,37,37, 0) 75%, rgba(37,37,37, 0) 100%);
+  background-color:rgba(30,30,30,1);
+}
+
+.container.blackbg .antharea .anthmsg .anthname  {
+  color:rgba(255, 255, 255, 0.8);
+}

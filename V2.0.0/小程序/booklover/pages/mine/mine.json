@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navigate-title": "../../templates/components/navigateTitle/index",
+    "custom-tabbar": "../../templates/components/tabBar/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationStyle": "custom"
+}

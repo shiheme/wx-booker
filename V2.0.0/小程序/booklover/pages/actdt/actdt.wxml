@@ -1,0 +1,107 @@
+<!--actdt.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="wrapper-{{pageStyle}}"></view>
+
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+
+<view class="showerror" style="display:{{showerror}};">
+  <image src="../../images/whitebg/error.svg"></image>
+  <view class="errortext">{{errMessage}}</view>
+</view>
+
+<view class="container {{pageStyle}}" style="display:{{display}};padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">{{detail.title.rendered}}
+          <block wx:if="{{detail.excerpt.rendered}}">·{{detail.excerpt.rendered}}</block>
+        </view>
+        <view class="subtit">{{detail.pageviews}}人浏览
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pagehead" style="background-color:{{detail.act_foreground}};">
+    <image src="{{detail.post_medium_image}}" mode="aspectFill" class=""></image>
+  </view>
+  <view class="pagebody {{isIphoneX?'pagebody-iphonex':''}}">
+    <view class="entry-summary">
+      <view class="contentbox" wx:if="{{detail.content}}">
+        <view class="h3title">活动详情</view>
+        <!--view class="contentarea" style="height:{{detailSummaryHeight}}"-->
+        <view class="contentarea">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+      <view class="gallerybox" wx:if="{{detail.act_gallery != ''}}">
+        <view class="h3title">图集</view>
+        <view class="galleryarea">
+          <template is="wxParse" data="{{wxParseData:gallery.nodes}}" />
+        </view>
+      </view>
+    </view>
+    <view class="card">
+      <view class="cardfoot">
+        <view class="cardcell">
+          <view class="tit">
+            <text>有效期</text>
+          </view>
+          <view class="more">
+            <block wx:if="{{detail.act_timelong[0]=='caselong'}}">
+              <text class="txt">长期有效</text>
+            </block>
+            <block wx:else>
+              <text class="txt" wx:if="{{detail.act_starttime != '0000-00-00' && detail.act_endtime != '0000-00-00'}}">活动有效期：{{detail.act_starttime}} 至 {{detail.act_endtime}}</text>
+              <text class="txt" wx:elif="{{detail.act_starttime != '0000-00-00' && detail.act_endtime == '0000-00-00'}}">活动时间：{{detail.act_starttime}} 开始</text>
+              <text class="txt" wx:elif="{{detail.act_starttime == '0000-00-00' && detail.act_endtime != '0000-00-00'}}">活动截止：{{detail.act_endtime}} 结束</text>
+            </block>
+          </view>
+        </view>
+        <view class="cardcell" wx:if="{{detail.act_shopname}}">
+          <view class="tit">
+            <text>服务</text>
+          </view>
+          <view class="more">
+            <text class="txt">{{detail.act_shopname}}</text>
+          </view>
+        </view>
+        <block wx:if="{{detail.act_shoptel}}">
+          <view class="cardcell">
+            <view class="tit">
+              <text>电话</text>
+            </view>
+            <view class="more">
+              <text class="txt">{{detail.act_shoptel}}</text>
+            </view>
+          </view>
+        </block>
+        <block wx:if="{{detail.act_shopads}}">
+          <view class="cardcell" catchtap="redictAmap" wx:if="{{detail.act_shoplocation}}">
+            <view class="tit">
+              <text>位置</text>
+            </view>
+            <view class="more">
+              <text class="txt">{{detail.act_shopads}}</text>
+              <icon />
+            </view>
+          </view>
+          <view class="cardcell" wx:else>
+            <view class="tit">
+              <text>位置</text>
+            </view>
+            <view class="more">
+              <text class="txt">{{detail.act_shopads}}</text>
+              <icon />
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 小程序广告 -->
+<view class="ad-box-video" wx:if="{{detail.detailAdId !='' && detail.detailAd=='1' && detailAdsuccess}}">
+  <ad unit-id="{{detail.detailAdId}}" ad-intervals="30" ad-type="video" binderror="detailAdbinderror"></ad>
+</view>

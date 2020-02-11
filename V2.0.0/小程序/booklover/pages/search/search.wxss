@@ -1,0 +1,140 @@
+/**search.wxss**/
+
+
+.searchbox {
+  position: relative;
+  margin: 0;
+  padding: 0 30rpx;
+  height: 78rpx;
+  z-index: 2;
+}
+
+.searchbox .searchwarp {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  border-radius: 60rpx;
+}
+
+.searchbox .closebtn {
+  margin-right: 15px;
+  font-weight: bold;
+  color:#13c471;
+  line-height: 32px;
+  white-space: nowrap;
+}
+
+.index-search {
+  display: flex;
+  position: relative;
+  flex: auto;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6rpx 30rpx;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+
+.search-input {
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  height: 52rpx;
+  padding: 4rpx 0;
+}
+
+.close-btn {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 24rpx;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+.searcharea.whitebg {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.searcharea.whitebg .searchcover {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.searcharea.whitebg .searchwarp {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.searcharea.whitebg .search-input {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.searcharea.whitebg .search-input-placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.searcharea.blackbg {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.searcharea.blackbg .searchcover {
+  background-color: rgba(0, 0, 0, 0.98);
+}
+
+.searcharea.blackbg .searchwarp {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.searcharea.blackbg .search-input {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.searcharea.blackbg .search-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.searchlogs {
+  opacity: 0.8;
+  position: relative;
+  z-index: 3;
+  padding: 0 50rpx;
+  margin-top: 30rpx;
+}
+
+.recordtext {
+  display: flex;
+  justify-content: space-between;
+}
+.recordtext text {}
+
+.recordtext image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.historybox {
+  display: flex;
+  margin-top: 20rpx;
+}
+
+.historybox .historylist {
+  border-radius: 10rpx;
+  padding: 10rpx 30rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin: 10rpx 20rpx 10rpx 0;
+}
+
+.searcharea.whitebg .historybox .historylist {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.searcharea.blackbg .historybox .historylist {
+  background: rgba(255, 255, 255, 0.2);
+}

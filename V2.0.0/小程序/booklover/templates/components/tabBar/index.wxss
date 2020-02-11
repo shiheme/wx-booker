@@ -1,0 +1,51 @@
+.tab-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  padding-bottom: calc(env(safe-area-inset-bottom));
+  z-index: 100;
+}
+
+.tab-bar-border {
+  background-color: rgba(0, 0, 0, 0.33);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  transform: scaleY(0.5);
+}
+
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tab-bar-item cover-image {
+  width: 27px;
+  height: 27px;
+}
+
+.tab-bar-item cover-view {
+  font-size: 10px;
+}
+.tab-bar.whitebg {background:rgba(255, 255, 255, 1)} 
+.tab-bar.whitebg .tab-bar-border {
+  background-color: rgba(255, 255, 255, 1);
+}
+.tab-bar.whitebg .tab-bar-item .color {color:rgba(0, 0,0, .8)}
+.tab-bar.whitebg .tab-bar-item .selectedColor {color:rgba(0, 0,0, 1)}
+
+.tab-bar.blackbg {background:rgba(20,20,20,1)} 
+.tab-bar.blackbg .tab-bar-border {
+  background-color: rgba(20,20,20,1);
+}
+.tab-bar.blackbg .tab-bar-item .color {color:rgba(255,255,255, .9)}
+.tab-bar.blackbg .tab-bar-item .selectedColor {color:rgba(255,255,255, 1)}

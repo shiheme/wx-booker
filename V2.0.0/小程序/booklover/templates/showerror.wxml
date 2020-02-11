@@ -1,0 +1,6 @@
+<template name="showerror">
+  <view class="showerror" style="display:{{showerror}};">
+    <image src="../../images/{{pageStyle}}/error.svg" wx:if="{{pageStyle}}"></image>
+    <view class="errortext">网络原因加载失败，下拉刷新重试</view>
+  </view>
+</template>

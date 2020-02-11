@@ -1,0 +1,56 @@
+<!--faqdt.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+
+<view class="container {{pageStyle}}" style="display:{{display}};padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">{{detail.title.rendered}}
+        </view>
+        <view class="subtit">{{detail.pageviews}}人浏览
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="pagebody">
+    <view class="entry-summary">
+      <view class="contentbox" wx:if="{{detail.content}}">
+        <view class="h3title"></view>
+        <!--view class="contentarea" style="height:{{detailSummaryHeight}}"-->
+        <view class="contentarea">
+          <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+        </view>
+      </view>
+      <view class="gallerybox" wx:if="{{detail.faq__gallery && detail.faq__gallery != ''}}">
+        <view class="h3title"></view>
+        <view class="galleryarea">
+          <template is="wxParse" data="{{wxParseData:gallery.nodes}}" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="card kefubox">
+    <view class="cardhead">
+      <text>没有解决到您的问题？</text>
+    </view>
+    <view class="cardfoot">
+      <view class="kefu">
+        <view class="cardcell">
+          <view class="tit">
+            <text>联系馆长</text>
+          </view>
+          <view class="more">
+            <icon />
+          </view>
+        </view>
+        <button class="auth-btn" open-type="contact"></button>
+      </view>
+    </view>
+  </view>
+</view>

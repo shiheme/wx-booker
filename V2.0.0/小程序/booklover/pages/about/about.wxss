@@ -1,0 +1,13 @@
+.entry-summary {
+  font-size: 32rpx;
+  line-height: 1.5;
+  padding: 50rpx;
+}
+
+.entry-summary .contentarea {
+  font-size: 30rpx;
+  letter-spacing: 1rpx;
+  text-align: justify;
+  word-wrap: break-word;
+  word-break: normal;
+}

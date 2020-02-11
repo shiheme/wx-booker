@@ -1,0 +1,235 @@
+<!--detail.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/floatads.wxml" />
+<import src="../../templates/showerror.wxml" />
+<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/loading.wxml" />
+<import src="../../templates/modal-view/modal-view.wxml" />
+<import src="../../templates/login-popup.wxml" />
+
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{detail.book_pagestyle ? detail.book_pagestyle : pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}"
+  bgcolor="{{detail.book_foreground}}" cnt_tp="{{cnt_tp}}" />
+<view class="navigate-booksmg-box {{isActive ? 'active' : ''}} {{detail.book_pagestyle}}" style="left:120rpx;top:{{navBarHeight}}px;height:{{titleBarHeight}}px;">
+  <view class="navigate-booksmg" style="height:{{titleBarHeight}}px;width:100%;">
+    <image src="{{detail.post_medium_image}}" mode="aspectFill"></image>
+    <view class="navigate-booksmg-txt">
+      <text class="tit">{{detail.title.rendered}}</text>
+      <block wx:if="{{likeCount > 0}}">
+        <text class="desc">{{detail.pageviews}}人浏览·{{likeCount}}人喜欢</text>
+      </block>
+      <block wx:else>
+        <text class="desc">{{detail.pageviews}}人浏览</text>
+      </block>
+    </view>
+  </view>
+</view>
+<view bindtouchmove="touchmove" bindtouchend="touchend" bindtouchcancel="touchcancel" class="container {{pageStyle}}">
+
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view style="display:{{display}};">
+    <view class="pagehead {{detail.book_pagestyle}}" style="background-color:{{detail.book_foreground}};padding-top: {{customBarHeight+10}}px;">
+      <image src="{{detail.post_medium_image}}" mode="aspectFill" class="cover"></image>
+      <view class="imtit">
+        <view class="imtit-label">
+          <view class="imtit-label-title">
+            <view class="maintit">{{detail.title.rendered}}
+            </view>
+            <view class="subtit">{{detail.excerpt.rendered}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="likearea" style="display:{{displayLike}}">
+        <block wx:key="id" wx:for="{{likeList}}">
+          <image src="{{item}}" class=""></image>
+        </block>
+      </view>
+    </view>
+    <view class="pagebody">
+      <view class="entry-summary">
+        <view class="ctlbtn">
+          <view class="btnbox">
+            <view class="btn" catchtap="clickLike" wx:if="{{likeImag}}">
+              <image src="../../images/{{likeImag}}"></image>
+            </view>
+          </view>
+          <view class="btnbox">
+            <button open-type='share' plain="true"></button>
+            <view class="btn">
+              <image src="../../images/{{pageStyle}}/share.svg"></image>
+            </view>
+          </view>
+          <view class="btnbox" catchtap="onCreatePoster">
+            <view class="btn">
+              <image src="../../images/{{pageStyle}}/pengyouquan.svg"></image>
+            </view>
+          </view>
+          <view class="btnbox" catchtap="praise">
+            <view class="btn">
+              <image src="../../images/{{pageStyle}}/zan.svg"></image>
+            </view>
+          </view>
+        </view>
+        <view class="contentbox">
+          <view class="h3title">简介</view>
+          <!--view class="contentarea" style="height:{{detailSummaryHeight}}"-->
+
+          <view class="contentarea" wx:if="{{detail.book_videoadslol == '2'}}">
+            <!--正文-->
+            <block wx:if="{{detail.content && detail.content.rendered != ''}}">
+              <template is="wxParse" data="{{wxParseData:article.nodes,videolook:videolook,fileopen:fileopen,pageStyle:pageStyle}}" />
+            </block>
+            <block wx:else>
+              暂无描述
+            </block>
+          </view>
+          <view class="contentarea" wx:else>
+            <!--正文-->
+            <block wx:if="{{detail.content && detail.content.rendered != ''}}">
+              <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            </block>
+            <block wx:else>
+              暂无描述
+            </block>
+            <view class="card wxParse-videolook" wx:if="{{detail.book_videoadscnt !=''}}">
+              <view class="wxParse-hidecnt" wx:if="{{videolook}}">
+                <template is="wxParse" data="{{wxParseData:videoadscnt.nodes,fileopen:fileopen,pageStyle:pageStyle}}" />
+              </view>
+              <view class="wxParse-hidecntbtn" catchtap="readMore" wx:else>
+                <image class="wxParse-img" src="../../images/{{pageStyle}}/lock.svg" />
+                <text class="wxParse-tit">{{detail.book_videoadstit}}</text>
+              </view>
+            </view>
+          </view>
+
+        </view>
+        <view class="gallerybox" wx:if="{{detail.book_gallery && detail.book_gallery != ''}}">
+          <view class="h3title">图集</view>
+          <view class="galleryarea">
+            <template is="wxParse" data="{{wxParseData:gallery.nodes}}" />
+          </view>
+        </view>
+      </view>
+      <view class="card">
+        <view class="cardfoot">
+          <view class="cardcell" data-item="{{detail.category_name}}" data-id="{{detail.categories[0]}}" bindtap="redictIndex" wx:if="{{detail.category_name && detail.category_name != ''}}">
+            <view class="tit">
+              <text>所属分类</text>
+            </view>
+            <view class="more">
+              <text class="num">{{detail.category_name}}</text>
+              <icon />
+            </view>
+          </view>
+          <view class="cardcell" bindtap="wxParseTagATap" data-src="https://{{cnt_tp_ok}}.douban.com/subject/{{detail.book_dbid}}/" wx:if="{{detail.book_dbid && detail.book_dbid !=''}}">
+            <view class="tit">
+              <text>豆瓣Link</text>
+            </view>
+            <view class="more">
+              <text class="num">ID {{detail.book_dbid}}</text>
+              <icon />
+            </view>
+          </view>
+          <view class="cardcell" bindtap="wxParseTagATap" data-src="{{detail.book_isbn}}" wx:if="{{detail.book_isbn && detail.book_isbn !=''}}">
+            <view class="tit">
+              <text>ISBN</text>
+            </view>
+            <view class="more">
+              <text class="num">{{detail.book_isbn}}</text>
+              <icon />
+            </view>
+          </view>
+          <view class="cardcell" wx:if="{{detail.book_price && detail.book_price !=''}}">
+            <view class="tit">
+              <text>售价</text>
+            </view>
+            <view class="more">
+              <text class="num">¥ {{detail.book_price}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card" wx:if="{{detail.book_sharer && detail.book_sharer != ''}}">
+        <view class="cardfoot">
+          <view class="cardcell">
+            <view class="tit titnor">
+              <text>感谢 {{detail.book_sharer}} 的捐赠/共享</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="card" wx:if="{{cmset.open_dtqcode == 1}}">
+        <view class="cardhead">
+          <view class="cardcell">
+            <view class="tit">
+              <text>{{cmset.qcode_tit}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="cardbody qcode">
+          <view class="qcodeli" wx:if="{{cmset.qcode_wx != false}}">
+            <image catchtap="popSingleimg" data-src="{{cmset.qcode_wx}}" src="{{cmset.qcode_wx}}" alt="" style="width:200rpx; height:200rpx;"></image>
+            <text>请长按或扫码识别</text>
+          </view>
+          <view class="qcodeli" wx:if="{{cmset.qcode_qq != false}}">
+            <image catchtap="popSingleimg" data-src="{{cmset.qcode_qq}}" src="{{cmset.qcode_qq}}" alt="" style="width:200rpx; height:200rpx;"></image>
+            <text>请长按或扫码识别</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="msgtipbox {{pageStyle}} {{cmset.open_imptbtn == 1?'mtb_open_imptbtn':''}}" style="display:{{display}}" wx:if="{{cmset.open_dtnavads == 1}}">
+  <view class="card msgtip">
+    <swiper vertical="true" autoplay="true" circular="true" interval="4000" style="height:100rpx;">
+      <swiper-item wx:key="id" wx:for="{{postsShowSwiperList}}">
+        <view class="cardcell" bindtap="redictAct">
+          <view class="tit" style="line-height: 28rpx;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">
+            <text style="color:{{item.book_foreground}};">{{item.post_title}}·{{item.post_excerpt}}</text>
+          </view>
+          <view class="more">
+            <icon />
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<view class="borrowbox {{pageStyle}}" style="display:{{display}}" wx:if="{{cmset.open_imptbtn == 1}}">
+  <view class="borrowcontain">
+    <view class="sellborrowpricearea" wx:if="{{detail.book_rent}}">
+      <view class="bookborrowprice">
+        <text style="display:none;">借阅费</text>
+        <text>¥{{detail.book_rent}}</text>
+        <text class="unit">/本/月</text>
+      </view>
+    </view>
+    <view class="borrowpricearea" wx:else>
+      <text style="display:none;">借阅费</text>
+      <text>¥1.00</text>
+      <text class="unit">/本/月</text>
+    </view>
+    <view class="borrowmainbtnbox {{detail.book_pagestyle}}">
+      <block wx:if="{{detail.book_stock==0}}">
+        <view class="borrowmainbtn norss">
+          <text class="">已借出</text>
+        </view>
+      </block>
+      <block wx:elif="{{detail.book_stock>=1}}">
+        <view class="borrowmainbtn yesrss" data-booktit="{{detail.title.rendered}}" style="background-color:{{detail.book_foreground}}" catchtap="redictContact">
+          <text class="">预约借书</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<template is="modalView" data="{{...__modalView__}}" />
+<poster id="poster" hide-loading="{{false}}" preload="{{false}}" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+</poster>
+<template is="login-popup" data="{{show: isLoginPopup, userInfo: userInfo}}"></template>
+<view class="floatadsbox {{cmset.open_dtnavads == 1?'flb_open_dtnavads':''}} {{cmset.open_imptbtn == 1?'flb_open_imptbtn':''}}" wx:if="{{cmset.open_floatads == 1 && (floatads_location != -1)}}">
+  <template is="floatads" data="{{isTouch:isTouch,isTrans:isTrans,floatads_url:cmset.floatads_url,floatads_image:cmset.floatads_image}}" />
+</view>

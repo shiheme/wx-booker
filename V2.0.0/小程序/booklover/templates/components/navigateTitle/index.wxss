@@ -1,0 +1,97 @@
+.header-title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.header-title.active {
+  box-shadow: none;
+}
+
+.header-title .header-title-bg {
+  opacity: 0;
+  /*transition: 0.3s;*/
+}
+
+.header-title.active .header-title-bg {
+  opacity: 1;
+  /*transition: 0.3s;*/
+}
+
+.header-title .navigate-bar {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  transition: 0.3s;
+}
+
+.header-title .btn {
+  width: 88rpx;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-around;
+}
+
+.header-title .btn:first-child {
+  margin-left: 20rpx;
+}
+
+.header-title .navigate-title {
+  width: 100%;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
+}
+
+.header-title .btn image {
+  align-self: center;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.header-title .navigate-icon {
+  width: 88rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+/*.header-title .navigator-back {
+  align-self: center;
+}
+
+.header-title .navigator-back:after {
+  content: '';
+  display: block;
+  width: 22rpx;
+  height: 22rpx;
+  transform: rotate(225deg);
+}*/
+
+.header-title.whitebg .header-title-bg {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.header-title.whitebg .navigate-title {
+  color: rgba(0, 0, 0, 0.8);
+}
+.header-title.blackbg .header-title-bg {
+  background-color: rgba(20, 20, 20, 1);
+}
+
+.header-title.blackbg .navigate-title {
+  color: rgba(255, 255, 255, 0.8);
+}

@@ -1,0 +1,27 @@
+<!--templates/login-popup.wxml-->
+<template name="login-popup">
+
+  <view class="login-popup {{show ? 'popup-show' : ''}}">
+    <!-- 遮罩层 -->
+    <view class="popup-mask" bindtap="closeLoginPopup"></view>
+    <!-- 弹出层内容 -->
+    <view class="popup-container">
+      <view class="login-popup-wrapper">
+        <block wx:if="{{!userInfo.isLogin}}">
+          <view class="tipcnt">
+            <icon type="info" size="24" />
+            <text>此操作需要获取您的用户信息</text></view>
+          <view class="tipbtn">
+            <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="agreeGetUser">确定</button></view>
+            <view class="tipbtn">
+            <button class="reset" catchtap="exit">重置</button>
+          </view>
+          <view class="tipimportant">* 如果登录失败或无反应，点击重置刷新页面</view>
+        </block>
+        <block wx:else>
+
+        </block>
+      </view>
+    </view>
+  </view>
+</template>

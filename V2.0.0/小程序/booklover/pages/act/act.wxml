@@ -1,0 +1,60 @@
+<!--act.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" wx:if="{{pageStyle}}" />
+<view class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label imtit-label-great">
+      <view class="imtit-label-title">
+        <view class="maintit">{{categoriesName}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox actlist" style="display:{{floatDisplay}}">
+    <block wx:key="id" wx:for="{{postsList}}">
+      <view class="actli" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+        <view class="content-msg">
+          <view class="content-title">
+            <text class="tit">{{item.title.rendered}}<block wx:if="{{item.excerpt.rendered}}">·{{item.excerpt.rendered}}</block></text>
+          </view>
+          <view class="content-area" wx:if="{{item.act_shopads}}">
+            <text class="">{{item.act_shopads}}</text>
+          </view>
+        </view>
+        <view class="card {{item.act_pagestyle}}">
+          <view class="cardhead">
+            <icon style="border-bottom: 10px solid {{item.act_foreground}};" />
+          </view>
+          <view class="cardbody">
+            <view class="content-main">
+              <view class="content-image" style="background-color:{{item.act_foreground}};">
+                <image src="{{item.post_medium_image}}" mode="aspectFill"></image>
+              </view>
+            </view>
+          </view>
+          <view class="cardfoot" style="background-color:{{item.act_background}};">
+            <view class="cardcell">
+              <view class="tit">
+                <block wx:if="{{item.act_timelong[0]=='caselong'}}">
+                  <text>长期有效</text>
+                </block>
+                <block wx:else>
+                  <text wx:if="{{item.act_starttime != '0000-00-00' && item.act_endtime != '0000-00-00'}}">活动有效期：{{item.act_starttime}} 至 {{item.act_endtime}}</text>
+                  <text wx:elif="{{item.act_starttime != '0000-00-00' && item.act_endtime == '0000-00-00'}}">活动时间：{{item.act_starttime}} 开始</text>
+                  <text wx:elif="{{item.act_starttime == '0000-00-00' && item.act_endtime != '0000-00-00'}}">活动截止：{{item.act_endtime}} 结束</text>
+                </block>
+              </view>
+              <view class="more">
+                <icon />
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

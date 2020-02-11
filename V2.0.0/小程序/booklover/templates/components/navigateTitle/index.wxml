@@ -1,0 +1,28 @@
+<view class="header-title {{isActive ? 'active' : ''}} {{pageStyle}}" style="position:fixed;display:block;height:{{customBarHeight}}px;width:100%;">
+  <view class="navigate-bar" style="position:relative;top:{{navBarHeight}}px;z-index:2;height:{{titleBarHeight}}px;">
+    <view class="gobackbtn btn" style="height:{{titleBarHeight}}px;" wx:if="{{isGoback}}">
+      <navigator class="navigate-icon" style="height:{{titleBarHeight}}px;" open-type="navigateBack" wx:if="{{isshare==0}}">
+        <image src="../../../images/{{pageStyle}}/back.svg"></image>
+      </navigator>
+      <navigator class="navigate-icon" style="height:{{titleBarHeight}}px;" open-type="switchTab" url="/pages/index/index?cnt_tp={{cnt_tp}}" wx:else>
+        <image src="../../../images/{{pageStyle}}/home.svg"></image>
+      </navigator>
+    </view>
+    <view bindtap='tapsearcharea' data-cnt_tp="{{cnt_tp}}" class="searchbtn btn" style="height:{{titleBarHeight}}px;" wx:if="{{isSearch}}">
+      <image src="../../../images/{{pageStyle}}/search.svg"></image>
+    </view>
+    <view bindtap="scanCode" class="scancodebtn btn" style="height:{{titleBarHeight}}px;" data-cnt_tp="{{cnt_tp}}" wx:if="{{isScancode}}">
+      <image src="../../../images/{{pageStyle}}/scancode.svg"></image>
+    </view>
+    <view bindtap="changeTheme" class="btn" style="height:{{titleBarHeight}}px;" data-cnt_tp="{{cnt_tp}}" wx:if="{{isTheme}}">
+      <image src="../../../images/{{pageStyle}}/theme.svg"></image>
+    </view>
+    <view bindtap="redictHelp" data-item="{{helpurl}}" class="helpbtn btn" style="height:{{titleBarHeight}}px;" wx:if="{{istoHelp}}">
+      <image src="../../../images/{{pageStyle}}/help.svg"></image>
+    </view>
+    <view class="navigate-title" style="line-height:{{titleBarHeight}}px;">
+      <text>{{title}}</text>
+    </view>
+  </view>
+  <view class="header-title-bg" style="position:absolute;background:{{bgcolor}};left:0;top:0;right:0;height:{{customBarHeight}}px; z-index:1;"></view>
+</view>

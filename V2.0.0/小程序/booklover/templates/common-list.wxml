@@ -1,0 +1,76 @@
+<template name="tempCommonList">
+  <block wx:key="id" wx:for="{{postsList}}">
+    <view class="card list-item-ad" index="{{index}}" wx:if="{{index%item.listAdEvery ==0  && index!=0 && item.listAd =='1' && item.listAdId !=''  && listAdsuccess}}">
+      <view class="cardbody">
+        <ad unit-id="{{item.listAdId}}" ad-intervals="30" binderror="listAdbinderror"></ad>
+      </view>
+      <view class="cardfoot">
+        <view class="cardcell">
+          <view class="tit">
+            <text class="case case1">这是一条光彩夺目的广告</text>
+          </view>
+          <view class="more">
+            <image src="../../images/{{pageStyle}}/like.svg" class="img-like"></image>
+            <text class="num">{{index*24+100}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="card {{item.book_pagestyle}}" index="{{index}}" id="{{item.id}}" bindtap="redictDetail">
+      <view class="cardhead"></view>
+      <view class="cardbody" style="background-color:{{item.book_foreground}};">
+        <view class="content-main">
+          <view class="content-image">
+            <image src="{{item.post_medium_image}}" mode="aspectFill" class="cover"></image>
+          </view>
+          <view class="content-other">
+            <view class="content-title">
+              <text class="tit">{{item.title.rendered}}</text>
+            </view>
+            <view class="content-desc">
+              <text class="desc">{{item.excerpt.rendered}}</text>
+            </view>
+
+            <view class="content-desc-other category_name" wx:if="{{item.card_price}}">
+              <text class="">{{item.card_price}}</text>
+            </view>
+
+            <view class="content-desc-other category_name" wx:if="{{item.category_name}}">
+              <text class="">所属书单《{{item.category_name}}》</text>
+            </view>
+
+          </view>
+        </view>
+      </view>
+      <view class="cardfoot">
+        <view class="cardcell">
+          <view class="tit">
+            <block wx:if="{{item.book_stock==0}}">
+              <text class="case case1">已借出</text>
+            </block>
+
+            <block wx:elif="{{item.book_stock>=1}}">
+              <text class="case case3">在馆可借阅</text>
+            </block>
+            <block wx:if="{{item.book_sharer}}">
+              <text class="txt">{{item.book_sharer}} 共享</text>
+            </block>
+            <block wx:if="{{item.card_coin}}">
+              <text>{{item.card_coin}} 积分</text>
+            </block>
+          </view>
+          <view class="more">
+            <block wx:if="{{item.like_count > 0}}">
+              <image src="../../images/{{pageStyle}}/like.svg" class="img-like"></image>
+              <text class="num">{{item.like_count}}</text>
+            </block>
+            <block wx:if="{{item.card_coin}}">
+              <text class="txt">去兑换</text>
+              <icon />
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</template>

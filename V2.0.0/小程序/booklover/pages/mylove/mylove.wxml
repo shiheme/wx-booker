@@ -1,0 +1,22 @@
+<!--mylove.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../templates/common-list.wxml" />
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="/pages/faq/faq" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label">
+      <view class="imtit-label-title">
+        <view class="maintit">我喜欢的</view>
+        <view class="subtit" wx:if="{{shownodata}}">还没有喜欢的内容</view>
+        <view class="subtit" wx:else>仅显示最近的20条记录</view>
+      </view>
+    </view>
+  </view>
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox booklist mylovebook" style="display:{{floatDisplay}};">
+    <template is="tempCommonList" data="{{postsList}}" />
+  </view>
+</view>

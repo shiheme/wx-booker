@@ -1,0 +1,16 @@
+<!--amap.wxml-->
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+<navigate-title title="" isshare="{{isshare}}" pageStyle="whitebg" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" />
+<view class="container {{pageStyle}}">
+  <map class="map" id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}"></map>
+</view>
+<view class="map_text {{pageStyle}} {{isIphoneX?'map_text-iphonex':''}}">
+  <view class="mapmark">
+    <image src="../../images/on/marker.png" style="width:64rpx; height:64rpx;"></image>
+  </view>
+  <view class="mapmsg">
+    <text class="h1">{{act_shopname}}</text>
+    <text>{{textData.name}}<block wx:if="{{textData.desc}}">({{textData.desc}})</block></text>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<page-meta page-style="background-color:{{pageBackground}}"></page-meta>
+<view class="wrapper-{{pageStyle}}"></view>
+
+<import src="../../wxParse/wxParse.wxml" />
+<import src="../../templates/login-popup.wxml" />
+<import src="../../templates/showerror.wxml" />
+<navigate-title title="" isshare="{{isshare}}" pageStyle="{{pageStyle}}" helpurl="" isActive="{{isActive}}" isGoback="{{isGoback}}" isSearch="{{isSearch}}" isScancode="{{isScancode}}" istoHelp="{{istoHelp}}" wx:if="{{pageStyle}}" />
+<view class="container {{pageStyle}}" style="padding-top: {{customBarHeight+10}}px;">
+  <view class="imtit">
+    <view class="imtit-label">
+      <view class="imtit-label-title">
+        <view class="maintit">V2.0.0
+        </view>
+        <view class="subtit">基于微慕小程序开发
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="showerror" data="{{showerror:showerror,pageStyle:pageStyle}}"></template>
+  <view class="cntlistbox" style="display:{{floatDisplay}}">
+    <view class="entry-summary">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+</view>
