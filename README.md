@@ -1,5 +1,5 @@
 ## wx-booker
-微信小程序-图书共享预定  
+微信小程序-书巢小程序（图书共享预定 ）  更新至V2.0.0
 
 # 体验效果
 **在微信中搜索小程序【建始同城共享书】或扫码体验**  
@@ -13,7 +13,18 @@
 # 初衷
 通过微信小程序向当地爱书者提供一个图书共享预定平台，前期期望投入费用越少越好。同时还要有一定的变现能力，例如图书借阅费、本地商家广告投放。
 
-# 功能分解
+# V2.0.0功能新增（20200205）
+1. 完全自定义文章类型和自定义字段
+2. 增加输入ISBN一键获取豆瓣书籍信息
+3. 增加看广告显示隐藏内容短代码，可插入到正文任意位置
+4. 增加办公文档查看
+5. 增加切换风格
+6. 增加关于页面，内容在后台配置输出
+7. 增加悬浮广告位，可后台配置显示在首页/列表页/详情页
+8. 增加可关闭借阅按钮
+9. 增加若干全局设置
+
+# V1.0.0功能分解
 1. 图书分类管理
 2. 图书信息管理，包括介绍和图书相关ISBN、关联分类等
 3. 预借功能与费用管理
@@ -65,7 +76,7 @@
 
 至此，程序安装完成，这一步预览小程序的效果是微慕小程序的模板。
 
-- **微信小程序-图书共享预定模板安装调试**  
+- **微信小程序-书巢小程序模板安装调试**  
  1. *Wordpress插件替换*  
  Clone [微信小程序-图书共享预定](https://github.com/shiheme/wx-booker)到本地，其中code是小程序前端代码。plug是微慕的小程序插件的修改版，该插件务必配合使用[raz主题](http://appbeebee.com/product/raz/)才能用。  
  ![viewimg/08.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/08.jpg) 
@@ -87,9 +98,24 @@
  使用[高德SDK](https://lbs.amap.com/api/wx/summary/)，前往并注册账号获取key，key和city需要配置成你的信息。需要配置的文件pages/mine/mine.js,pages/amap/amap.js。SDK在Github的传送门：[https://github.com/amap-demo/wx-regeo-poiaround-weather](https://github.com/amap-demo/wx-regeo-poiaround-weather)。  
  ![viewimg/15.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/15.jpg)
 
+ - **微信小程序2.0.0-书巢小程序模板安装调试**  
+ 1. 将文件包插件目录下的两个插件文件安装或覆盖在wordpress的插件目录中（/wp-content/plugins/）；
+ 2. 进入wordpress后台管理，开启pods和微慕小程序插件；
+ 3. 在pods插件中启用Migrate: Packages组件;
+ 4. 在Migrate: Packages组件中导入文件包data目录下的pods文件;
+ 5. 导入后，左侧菜单栏会出现【书目】【帮助】【活动】三个自定义文章以及二级菜单分类和设置等；
+ 6. 接下来导入书目模拟数据：进入菜单工具-可用工具中启用【导入】, 然后将文件包中的书目模拟数据导入；
+ 7. 将小程序代码直接在小程序开发工具中导入。
+ 8. 在wordpress后台配置微慕小程序的相关key
+ 9. 在小程序代码里的project.config.json和config.js进行配置相关key
+ 10. 在wordpress的书目设置和全局设置中进行相关文字设置，包括首页标题等
+ 11. 完成后，进行测试即可。
+ 
+ 任何问题进QQ群反馈：928993356
+
 # 感谢
-- 感谢[https://hellobeebee.com/](https://hellobeebee.com/) 提供空间  
-- 感谢[https://appbeebee.com/](https://appbeebee.com/) 提供主题  
+- 感谢[https://www.hellobeebee.com/](https://hellobeebee.com/) 提供空间。升级为书巢小程序官方网站。  
+- 感谢[https://www.appbeebee.com/](https://appbeebee.com/) 提供主题。V2.0.0无需安装此主题。  
 - 感谢[https://shops.minapper.com/](https://shops.minapper.com/) 提供小程序代码  
 - 如果你觉得这个模板不错，请打赏馆长。  
 ![viewimg/16.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/16.jpg) 
