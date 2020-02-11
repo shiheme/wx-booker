@@ -110,12 +110,12 @@
  9. 在小程序代码里的project.config.json和config.js进行配置相关key
  10. 在wordpress的书目设置和全局设置中进行相关文字设置，包括首页标题等
  11. 完成后，进行测试即可。
- 
+
  任何问题进QQ群反馈：928993356
 
 # 感谢
-- 感谢[https://www.hellobeebee.com/](https://hellobeebee.com/) 提供空间。升级为书巢小程序官方网站。  
-- 感谢[https://www.appbeebee.com/](https://appbeebee.com/) 提供主题。V2.0.0无需安装此主题。  
+- 感谢[https://www.hellobeebee.com/](https://www.hellobeebee.com/) 提供空间。升级为书巢小程序官方网站。  
+- 感谢[https://www.appbeebee.com/](https://www.appbeebee.com/) 提供主题。V2.0.0无需安装此主题。  
 - 感谢[https://shops.minapper.com/](https://shops.minapper.com/) 提供小程序代码  
 - 如果你觉得这个模板不错，请打赏馆长。  
 ![viewimg/16.jpg](https://raw.githubusercontent.com/shiheme/wx-booker/master/viewimg/16.jpg) 
